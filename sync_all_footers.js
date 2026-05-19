@@ -22,14 +22,8 @@ function extractHomepageFooter() {
     return content.substring(footerStart, footerEnd + 9);
 }
 
-function getRelativePrefix(depth) {
-    return '../'.repeat(depth);
-}
-
-function adjustFooterPaths(footerHtml, depth) {
-    if (depth === 0) return footerHtml;
-    const prefix = getRelativePrefix(depth);
-    
+function makeFooterPathsRelative(footerHtml, depth) {
+    const prefix = '../'.repeat(depth);
     let adjusted = footerHtml;
     
     // Adjust all local file paths in the footer to match the subfolder depth
@@ -40,6 +34,28 @@ function adjustFooterPaths(footerHtml, depth) {
     adjusted = adjusted.replace(/href="portfolio\//gi, `href="${prefix}portfolio/`);
     adjusted = adjusted.replace(/href="digital-marketing-blog\//gi, `href="${prefix}digital-marketing-blog/`);
     adjusted = adjusted.replace(/href="digital-marketing-services-company-in-mandhar,\s*raipur\//gi, `href="${prefix}digital-marketing-services-company-in-mandhar, raipur/`);
+    
+    // Injected style block with shorthand 'background' to completely override gray variables,
+    // using mathematically correct depth prefix so it works offline, in subfolders, and online!
+    const styleBlock = `
+<style>
+  div.et_pb_section.et_pb_section_1_tb_footer {
+    background: rgba(0, 0, 0, 0.55) url(${prefix}wp-content/uploads/2024/10/Design-process-bg.jpg.webp) repeat !important;
+    background-blend-mode: darken !important;
+  }
+  .et_pb_section_1_tb_footer .et_pb_image_wrap img {
+    display: block !important;
+    max-height: 75px !important;
+    width: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+</style>
+`;
+    
+    // Inject stylesheet right after the opening footer tag
+    const insertIndex = adjusted.indexOf('>') + 1;
+    adjusted = adjusted.substring(0, insertIndex) + styleBlock + adjusted.substring(insertIndex);
     
     return adjusted;
 }
@@ -56,39 +72,38 @@ function processDirectory(dir, homepageFooterHTML, depth = 0) {
                 return;
             }
             processDirectory(fullPath, homepageFooterHTML, depth + 1);
-        } else if (file === 'index.html' && depth > 0) {
-            // This is a subpage index.html
-            syncFooterForSubpage(fullPath, homepageFooterHTML, depth);
+        } else if (file === 'index.html') {
+            // Apply it to all pages, including the homepage (depth 0)
+            syncFooterForPage(fullPath, homepageFooterHTML, depth);
         }
     });
 }
 
-function syncFooterForSubpage(filePath, homepageFooterHTML, depth) {
-    console.log(`Syncing footer for: ${filePath} (depth: ${depth})`);
+function syncFooterForPage(filePath, homepageFooterHTML, depth) {
+    console.log(`Syncing and fixing footer for: ${filePath} (depth: ${depth})`);
     let content = fs.readFileSync(filePath, 'utf8');
     
-    // Find the subpage's current footer block
+    // Find the page's current footer block
     const footerStart = content.indexOf('<footer');
     const footerEnd = content.indexOf('</footer>', footerStart);
     
     if (footerStart !== -1 && footerEnd !== -1) {
-        const adjustedFooter = adjustFooterPaths(homepageFooterHTML, depth);
+        const adjustedFooter = makeFooterPathsRelative(homepageFooterHTML, depth);
         
         content = content.substring(0, footerStart) + adjustedFooter + content.substring(footerEnd + 9);
         fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`  -> Successfully synced and path-adjusted the footer!`);
+        console.log(`  -> Successfully synced and relative-path aligned the footer!`);
     } else {
         console.log(`  -> WARNING: No <footer> tag found, skipping.`);
     }
 }
 
 function run() {
-    console.log("=== FOOTER SYNCHRONIZATION SYSTEM ===");
+    console.log("=== RELATIVE-PATH FOOTER SYNCHRONIZATION SYSTEM ===");
     console.log("Extracting customized footer from homepage...");
     const homepageFooter = extractHomepageFooter();
-    console.log(`Homepage footer extracted successfully (${homepageFooter.length} characters).`);
     
-    console.log("\nCloning and adapting footer across all subpages recursively...");
+    console.log("\nCloning, adapting, and applying footer background rules recursively...");
     processDirectory(targetDir, homepageFooter);
     console.log("\n✅ ALL SUBPAGE FOOTERS SYNCED PERFECTLY!");
 }

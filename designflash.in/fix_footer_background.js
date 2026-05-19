@@ -83,7 +83,7 @@ async function main() {
       const fileContent = fs.readFileSync(filePath, 'utf8');
 
       // Check if this file contains references we want to fix
-      const hasHtmlRef = fileContent.includes('Design-process-bg.html');
+      const hasHtmlRef = fileContent.includes('Design-process-bg.jpg.webp');
       const hasJpgRef = fileContent.includes('Design-process-bg.jpg');
 
       if (hasHtmlRef || hasJpgRef) {
@@ -105,7 +105,7 @@ async function main() {
         newContent = newContent.replace(absolutePattern, relativeUrl);
 
         // Pattern 2: Relative or root-relative broken html/jpg references
-        // e.g. url(wp-content/uploads/2024/10/Design-process-bg.html) or url(../wp-content/...)
+        // e.g. url(wp-content/uploads/2024/10/Design-process-bg.jpg.webp) or url(../wp-content/...)
         const relativePattern = /(?:\.\.\/)*wp-content\/uploads\/2024\/10\/Design-process-bg\.(html|jpg|jpg\.webp)/g;
         newContent = newContent.replace(relativePattern, relativeUrl);
 
