@@ -298,7 +298,15 @@ const imagesToDownload = [
     { url: "https://designflash.in/wp-content/uploads/2024/10/Online-ad.jpg.webp", dest: "wp-content/uploads/2024/10/Online-ad.jpg.webp" },
     { url: "https://designflash.in/wp-content/uploads/2024/10/seo-1.jpg.webp", dest: "wp-content/uploads/2024/10/seo-1.jpg.webp" },
     { url: "https://designflash.in/wp-content/uploads/2024/10/social-media.jpg.webp", dest: "wp-content/uploads/2024/10/social-media.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/ui_ux-designing.jpg.webp", dest: "wp-content/uploads/2024/10/ui_ux-designing.jpg.webp" }
+    { url: "https://designflash.in/wp-content/uploads/2024/10/ui_ux-designing.jpg.webp", dest: "wp-content/uploads/2024/10/ui_ux-designing.jpg.webp" },
+
+    // 6 Blog Images (3 normal, 3 400x250 thumbnails)
+    { url: "https://designflash.in/wp-content/uploads/2025/10/image1.webp", dest: "wp-content/uploads/2025/10/image1.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2025/10/image1-400x250.webp", dest: "wp-content/uploads/2025/10/image1-400x250.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2025/10/68590421-scaled.jpg.webp", dest: "wp-content/uploads/2025/10/68590421-scaled.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2025/10/68590421-400x250.jpg.webp", dest: "wp-content/uploads/2025/10/68590421-400x250.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2025/10/Decrease_3-1-scaled.jpg.webp", dest: "wp-content/uploads/2025/10/Decrease_3-1-scaled.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2025/10/Decrease_3-1-400x250.jpg.webp", dest: "wp-content/uploads/2025/10/Decrease_3-1-400x250.jpg.webp" }
 ];
 
 function downloadFile(url, destPath) {
@@ -310,7 +318,6 @@ function downloadFile(url, destPath) {
 
         const file = fs.createWriteStream(destPath);
         
-        // Add a User-Agent header so the server doesn't reject us as a bot
         const options = {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
@@ -414,7 +421,6 @@ async function run() {
     ];
 
     servicesImages.forEach(imgName => {
-        // Find any occurrences of the image with .html or remote URL and change to the local .jpg.webp
         const srcPattern = new RegExp(`src="[^"]*${imgName}[^"]*"`, 'gi');
         htmlContent = htmlContent.replace(srcPattern, `src="wp-content/uploads/2024/10/${imgName}.jpg.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&auto=format&fit=crop&q=80';"`);
 
@@ -422,11 +428,28 @@ async function run() {
         htmlContent = htmlContent.replace(srcsetPattern, `srcset="wp-content/uploads/2024/10/${imgName}.jpg.webp"`);
     });
 
-    fs.writeFileSync(htmlFilePath, htmlContent, 'utf8');
-    console.log("HTML file successfully modified!");
+    // ==================== PART 3: FIX BLOG IMAGE PATHS ====================
+    console.log("\nFixing image path references in Blog Section...");
+    const blogImagesMapping = [
+        { name: "image1", ext: "webp" },
+        { name: "68590421", ext: "jpg.webp" },
+        { name: "Decrease_3-1", ext: "jpg.webp" }
+    ];
 
-    // ==================== PART 3: DOWNLOAD IMAGES ====================
-    console.log("\nDownloading all portfolio and service images directly into mirrored folders...");
+    blogImagesMapping.forEach(img => {
+        const srcPattern = new RegExp(`src="[^"]*${img.name}[^"]*"`, 'gi');
+        htmlContent = htmlContent.replace(srcPattern, `src="wp-content/uploads/2025/10/${img.name}-400x250.${img.ext}" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1432821596592-e2c18b78144f?w=400&auto=format&fit=crop&q=80';"`);
+
+        const srcsetPattern = new RegExp(`srcset="[^"]*${img.name}[^"]*"`, 'gi');
+        const scaledName = img.name === "image1" ? img.name : img.name + "-scaled";
+        htmlContent = htmlContent.replace(srcsetPattern, `srcset="wp-content/uploads/2025/10/${scaledName}.${img.ext} 479w, wp-content/uploads/2025/10/${img.name}-400x250.${img.ext} 480w"`);
+    });
+
+    fs.writeFileSync(htmlFilePath, htmlContent, 'utf8');
+    console.log("HTML file successfully modified with local assets!");
+
+    // ==================== PART 4: DOWNLOAD IMAGES ====================
+    console.log("\nDownloading all images (Portfolio + Services + Blog) directly into mirrored folders...");
     const destDirBase = path.join(rootDir, 'designflash.in');
     
     for (let i = 0; i < imagesToDownload.length; i++) {
@@ -435,7 +458,6 @@ async function run() {
         console.log(`[${i+1}/${imagesToDownload.length}] Downloading: ${img.url} -> ${img.dest}`);
         try {
             if (fs.existsSync(localDestPath)) {
-                // Keep the file if it's already there and not corrupted (size > 100 bytes)
                 const stat = fs.statSync(localDestPath);
                 if (stat.size > 100) {
                     console.log("  -> ALREADY EXISTS (SKIPPING)");
