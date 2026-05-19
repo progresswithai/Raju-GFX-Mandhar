@@ -1,0 +1,134 @@
+logo_carousel_child_2 et_clickable wdc_et_pb_module"><div class="et_pb_module_inner"><div class="dcf-carousel-item dcf-logo-carousel-item dcf-image-swap"><div class="dcf-overlay" data-icon=""></div><div><img decoding="async" class="dcf-swapped-img" data-mfp-src="/wp-content/uploads/2025/06/Google_2015_logo.svg.webp" src="/wp-content/uploads/2025/06/Google_2015_logo.svg.webp" alt=""/></div></div></div></div></div></div></div></div></div></div><div class="et_pb_section et_pb_section_7 et_pb_with_background et_section_regular">
+                    <div class="et_pb_row et_pb_row_8">
+                      <div
+                        class="et_pb_column et_pb_column_4_4 et_pb_column_18  et_pb_css_mix_blend_mode_passthrough et-last-child">
+                        <div
+                          class="et_pb_module et_pb_text et_pb_text_7 dct_title_v3  et_pb_text_align_left et_pb_bg_layout_light">
+                          <div class="et_pb_text_inner">
+                            <h2>Website Portfolio</h2>
+                          </div>
+                        </div>
+                        <div class="et_pb_module et_pb_text et_pb_text_8  et_pb_text_align_left et_pb_bg_layout_light">
+                          <div class="et_pb_text_inner">
+                            <p>At Design Flash, we pride ourselves on delivering high-quality, innovative web solutions
+                              tailored to meet the unique needs of our clients. Our portfolio showcases diverse projects
+                              highlightingour clients&#8217; unique needs our expertise, creativity, and commitment to
+                              excellence. Here are some of our notable works:</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="et_pb_row et_pb_row_9">
+                      <div
+                        class="et_pb_column et_pb_column_4_4 et_pb_column_19  et_pb_css_mix_blend_mode_passthrough et-last-child">
+                        <div class="et_pb_module difl_advancedtab difl_advancedtab_0">
+                          <div class="et_pb_module_inner">
+                            <div class="df_at_container"
+                              data-settings='{"tab_event_type":"click","use_sticky_nav":"","use_scroll_to_content":"","sticky_distance":"55px","sticky_distance_tablet":"55px","sticky_distance_phone":"","tab_animation":"fade_in","extra_space":false,"turn_off_sticky":"none","module_class":"difl_advancedtab_0","animation_duration":"200","default_active":""}'>
+                              <div class="df_at_nav_wrap">
+                                <div class="df_at_nav_container">
+                                  <div data-hash="difl_advancedtabitem_0"
+                                    class="difl_advancedtabitem_0 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title">Rs Traders</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_1"
+                                    class="difl_advancedtabitem_1 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title"> Skynet Automation</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_2"
+                                    class="difl_advancedtabitem_2 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title">Manifest Realty</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_3"
+                                    class="difl_advancedtabitem_3 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title">The Baklava Company</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_4"
+                                    class="difl_advancedtabitem_4 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title"> Bounce ‘n’ Build</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_5"
+                                    class="difl_advancedtabitem_5 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title">Shafiq Signature</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_6"
+                                    class="difl_advancedtabitem_6 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title"> BDWC</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_7"
+                                    class="difl_advancedtabitem_7 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title"> Afifa Foundation</h4>
+                                    </span>
+                                  </div>
+                                  <div data-hash="difl_advancedtabitem_8"
+                                    class="difl_advancedtabitem_8 df_at_nav lr_top md_top sm_top arrow_left">
+                                    <span class="at_nav_content">
+                                      <h4 class="df_at_title"> Airmaster</h4>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df_at_all_tabs_wrap">
+                                <div class="df_at_all_tabs">
+                                  <div class="et_pb_module difl_advancedtabitem difl_advancedtabitem_0">
+                                    <div class="et_pb_module_inner">
+                                      <div class="df_ati_container">
+                                        <div class="df_at_image_wrapper"><img decoding="async" class="df_at_image"
+                                            src="wp-content/uploads/2025/01/RST.html"
+                                            alt="Best Website Designing and Development Company" /></div>
+                                        <div class="df_at_content_wrapper">
+                                          <div class="df_at_content">
+                                            <p style="font-size: 20px; font-weight: bold; color: #000000;">RS Traders
+                                            </p>
+                                            <p>Design Flash elevates RS Traders’ online presence with a dynamic website
+                                              design tailored for the metal and rod trading industry. Our design
+                                              showcases RS Traders’ extensive catalog of high-quality metals and rods,
+                                              emphasizing reliability and precision in every transaction. With intuitive
+                                              navigation and impactful visuals, Design Flash ensures that RS Traders’
+                                              commitment to excellence and customer satisfaction shines through, making
+                                              the website a vital asset in connecting with stakeholders and expanding
+                                              market reach.</p>
+                                          </div>
+                                          <div class="df_at_button_wrapper">
+                                            <a class="df_at_button" href="https://rstbangalore.com/" target="_blank"
+                                              rel="noopener">Visit Website</a>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="et_pb_module difl_advancedtabitem difl_advancedtabitem_1">
+                                    <div class="et_pb_module_inner">
+                                      <div class="df_ati_container">
+                                        <div class="df_at_image_wrapper"><img decoding="async" class="df_at_image"
+                                            src="wp-content/uploads/2024/07/Group-378.html"
+                                            alt="Best Website Designing and Development Company" /></div>
+                                        <div class="df_at_content_wrapper">
+                                          <div class="df_at_content">
+                                            <p style="font-size: 20px; font-weight: bold; color: #000000;">Skynet
+                                              Automation</p>
+                                            <p>Design Flash elevates Sky Net Automation’s online presence with a
+                                              cutting-edge website design tailored for the automation industry. Our
+                                              design showcases Sky Net Automation’s innovative solutions and extensive
+                                              expertise in, emphasizing their commitment to technological excellence and
+                                              customer satisfaction. With intuitive navigation and impactful visuals,
+                                              Design Flash ensures that Sky Net Automation’s capabilities and
+                                              achievements are highlighted, providing potential clients with an engaging
+                                              and informative online experience that reflects their leadership in the
+                                              automation sector.
+           

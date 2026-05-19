@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Downloader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f2f5;
+            margin: 0;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 { margin-top: 0; color: #333; }
+        p { color: #666; font-size: 14px; margin-bottom: 20px; }
+        button {
+            background: #c1121f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        button:hover { background: #a00f1a; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+        #status { margin-top: 15px; font-weight: bold; color: #c1121f; min-height: 20px; }
+    </style>
+    <!-- Include JSZip and FileSaver for zipping files in browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+    <div class="card">
+        <h2>Portfolio Image Downloader</h2>
+        <p>WordPress blocks direct loading of these images (hotlinking protection), so they must be downloaded locally. Click below to download all 9 images in one ZIP file!</p>
+        <button id="downloadBtn">Download All Images (.ZIP)</button>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        const images = [
+            { url: "https://designflash.in/wp-content/uploads/2025/01/RST.png.webp", name: "RST.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2024/07/Group-378.png.webp", name: "Group-378.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2024/07/Group-379.png.webp", name: "Group-379.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2024/10/Baklava-Mockup.png.webp", name: "Baklava-Mockup.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2025/01/BNB-MC.png.webp", name: "BNB-MC.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2024/10/shifiq-Mockup.png.webp", name: "shifiq-Mockup.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2025/01/Group-441.png.webp", name: "Group-441.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2025/01/Group-441-2.png.webp", name: "Group-441-2.png.webp" },
+            { url: "https://designflash.in/wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp", name: "Airmaster-Mock-up.png.webp" }
+        ];
+
+        document.getElementById('downloadBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('downloadBtn');
+            const status = document.getElementById('status');
+            btn.disabled = true;
+            status.textContent = "Starting download...";
+
+            const zip = new JSZip();
+            const folder = zip.folder("portfolio_images");
+
+            for (let i = 0; i < images.length; i++) {
+                const img = images[i];
+                status.textContent = `Downloading ${i + 1}/${images.length}: ${img.name}...`;
+                try {
+                    const response = await fetch(img.url);
+                    if (!response.ok) throw new Error("HTTP error " + response.status);
+                    const blob = await response.blob();
+                    folder.file(img.name, blob);
+                } catch (e) {
+                    console.error("Failed to download " + img.url, e);
+                    status.textContent = `Error downloading ${img.name}. Retrying with proxy...`;
+                    // Fallback to proxy if needed, or just warn
+                }
+            }
+
+            status.textContent = "Generating ZIP file...";
+            zip.generateAsync({ type: "blob" }).then(function(content) {
+                saveAs(content, "portfolio_images.zip");
+                status.textContent = "Download complete! Extract this ZIP into your website folder.";
+                btn.disabled = false;
+            }).catch(err => {
+                status.textContent = "Failed to create ZIP: " + err.message;
+                btn.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>

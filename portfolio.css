@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.portfolio-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.portfolio-header {
+    margin-bottom: 40px;
+}
+
+.portfolio-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.portfolio-header p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1000px;
+}
+
+.portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    background-color: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.portfolio-tabs {
+    flex: 0 0 280px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-btn {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    text-align: left;
+    padding: 22px 25px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.tab-btn:last-child {
+    border-bottom: none;
+}
+
+.tab-btn:hover {
+    background-color: #1a1a1a;
+}
+
+.tab-btn.active {
+    background-color: #c1121f; /* Red color matching the screenshot */
+    color: #fff;
+    position: relative;
+}
+
+/* Arrow indicator on the right of the active tab */
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #fff; /* points left, matches the white background of the right side */
+}
+
+.portfolio-content-area {
+    flex: 1;
+    min-width: 0;
+    background-color: #fff;
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tab-details {
+    padding: 40px;
+}
+
+.tab-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #000;
+    margin-bottom: 15px;
+}
+
+.tab-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.visit-btn {
+    display: inline-block;
+    background-color: #c1121f;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.visit-btn:hover {
+    background-color: #a00f1a;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .portfolio-container {
+        flex-direction: column;
+    }
+    .portfolio-tabs {
+        flex: none;
+        width: 100%;
+    }
+    .tab-btn.active::after {
+        display: none;
+    }
+}
