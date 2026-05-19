@@ -281,6 +281,7 @@ const customPortfolioHTML = `
 `;
 
 const imagesToDownload = [
+    // 9 Portfolio Mockup Images
     { url: "https://designflash.in/wp-content/uploads/2025/01/RST.png.webp", dest: "wp-content/uploads/2025/01/RST.png.webp" },
     { url: "https://designflash.in/wp-content/uploads/2024/07/Group-378.png.webp", dest: "wp-content/uploads/2024/07/Group-378.png.webp" },
     { url: "https://designflash.in/wp-content/uploads/2024/07/Group-379.png.webp", dest: "wp-content/uploads/2024/07/Group-379.png.webp" },
@@ -289,7 +290,15 @@ const imagesToDownload = [
     { url: "https://designflash.in/wp-content/uploads/2024/10/shifiq-Mockup.png.webp", dest: "wp-content/uploads/2024/10/shifiq-Mockup.png.webp" },
     { url: "https://designflash.in/wp-content/uploads/2025/01/Group-441.png.webp", dest: "wp-content/uploads/2025/01/Group-441.png.webp" },
     { url: "https://designflash.in/wp-content/uploads/2025/01/Group-441-2.png.webp", dest: "wp-content/uploads/2025/01/Group-441-2.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp", dest: "wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp" }
+    { url: "https://designflash.in/wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp", dest: "wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp" },
+    
+    // 6 Services Images ("We’re ready to share our advice...")
+    { url: "https://designflash.in/wp-content/uploads/2024/10/web-design-1.jpg.webp", dest: "wp-content/uploads/2024/10/web-design-1.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2024/10/Branding.jpg.webp", dest: "wp-content/uploads/2024/10/Branding.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2024/10/Online-ad.jpg.webp", dest: "wp-content/uploads/2024/10/Online-ad.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2024/10/seo-1.jpg.webp", dest: "wp-content/uploads/2024/10/seo-1.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2024/10/social-media.jpg.webp", dest: "wp-content/uploads/2024/10/social-media.jpg.webp" },
+    { url: "https://designflash.in/wp-content/uploads/2024/10/ui_ux-designing.jpg.webp", dest: "wp-content/uploads/2024/10/ui_ux-designing.jpg.webp" }
 ];
 
 function downloadFile(url, destPath) {
@@ -300,7 +309,15 @@ function downloadFile(url, destPath) {
         }
 
         const file = fs.createWriteStream(destPath);
-        https.get(url, (response) => {
+        
+        // Add a User-Agent header so the server doesn't reject us as a bot
+        const options = {
+            headers: {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+            }
+        };
+
+        https.get(url, options, (response) => {
             if (response.statusCode !== 200) {
                 file.close(() => {
                     fs.unlink(destPath, () => {});
@@ -325,7 +342,6 @@ function findClosingDivIndex(html, startIndex) {
     let depth = 1;
     const regex = /<\/?div\b[^>]*>/gi;
     
-    // Move the regex start past the opening tag
     const tagMatch = /<div\b[^>]*>/i.exec(html.substring(startIndex));
     if (!tagMatch) return -1;
     
@@ -355,7 +371,7 @@ async function run() {
     console.log("Reading index.html...");
     let htmlContent = fs.readFileSync(htmlFilePath, 'utf8');
 
-    // Regex to locate the start of et_pb_section_7 (Website Portfolio section)
+    // ==================== PART 1: REPLACE PORTFOLIO SECTION ====================
     const sectionStartRegex = /<div[^>]*class="[^"]*et_pb_section_7[^"]*"/i;
     const match = sectionStartRegex.exec(htmlContent);
 
@@ -367,14 +383,12 @@ async function run() {
             fs.writeFileSync(htmlFilePath, htmlContent, 'utf8');
             console.log("Successfully updated the custom portfolio section!");
         } else {
-            console.error("Error: Could not find the Website Portfolio section in index.html");
-            process.exit(1);
+            console.warn("Warning: Could not find the Website Portfolio section in index.html");
         }
     } else {
         const startIndex = match.index;
         console.log("Found start of Portfolio section at index:", startIndex);
 
-        // Find the mathematically correct closing </div> of the section
         const endIndex = findClosingDivIndex(htmlContent, startIndex);
         
         if (endIndex === -1) {
@@ -384,16 +398,35 @@ async function run() {
 
         console.log("Found matching end of Portfolio section at index:", endIndex);
         
-        // Let's replace the block!
         console.log("Replacing broken Divi portfolio section with custom responsive tabs...");
         htmlContent = htmlContent.substring(0, startIndex) + customPortfolioHTML + htmlContent.substring(endIndex);
-        
-        fs.writeFileSync(htmlFilePath, htmlContent, 'utf8');
-        console.log("Successfully replaced broken Divi tabs with a high-fidelity custom tabs block!");
     }
 
-    // Now, download all the required images into local mirrored folder path
-    console.log("\nDownloading portfolio images directly into mirrored folders...");
+    // ==================== PART 2: FIX SERVICES IMAGE PATHS ====================
+    console.log("\nFixing image path references in Services Section...");
+    const servicesImages = [
+        "web-design-1",
+        "Branding",
+        "Online-ad",
+        "seo-1",
+        "social-media",
+        "ui_ux-designing"
+    ];
+
+    servicesImages.forEach(imgName => {
+        // Find any occurrences of the image with .html or remote URL and change to the local .jpg.webp
+        const srcPattern = new RegExp(`src="[^"]*${imgName}[^"]*"`, 'gi');
+        htmlContent = htmlContent.replace(srcPattern, `src="wp-content/uploads/2024/10/${imgName}.jpg.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&auto=format&fit=crop&q=80';"`);
+
+        const srcsetPattern = new RegExp(`srcset="[^"]*${imgName}[^"]*"`, 'gi');
+        htmlContent = htmlContent.replace(srcsetPattern, `srcset="wp-content/uploads/2024/10/${imgName}.jpg.webp"`);
+    });
+
+    fs.writeFileSync(htmlFilePath, htmlContent, 'utf8');
+    console.log("HTML file successfully modified!");
+
+    // ==================== PART 3: DOWNLOAD IMAGES ====================
+    console.log("\nDownloading all portfolio and service images directly into mirrored folders...");
     const destDirBase = path.join(rootDir, 'designflash.in');
     
     for (let i = 0; i < imagesToDownload.length; i++) {
@@ -402,7 +435,13 @@ async function run() {
         console.log(`[${i+1}/${imagesToDownload.length}] Downloading: ${img.url} -> ${img.dest}`);
         try {
             if (fs.existsSync(localDestPath)) {
-                fs.unlinkSync(localDestPath); // clear old or corrupt files
+                // Keep the file if it's already there and not corrupted (size > 100 bytes)
+                const stat = fs.statSync(localDestPath);
+                if (stat.size > 100) {
+                    console.log("  -> ALREADY EXISTS (SKIPPING)");
+                    continue;
+                }
+                fs.unlinkSync(localDestPath);
             }
             await downloadFile(img.url, localDestPath);
             console.log("  -> SUCCESS!");
