@@ -458,11 +458,6 @@ async function run() {
         console.log(`[${i+1}/${imagesToDownload.length}] Downloading: ${img.url} -> ${img.dest}`);
         try {
             if (fs.existsSync(localDestPath)) {
-                const stat = fs.statSync(localDestPath);
-                if (stat.size > 100) {
-                    console.log("  -> ALREADY EXISTS (SKIPPING)");
-                    continue;
-                }
                 fs.unlinkSync(localDestPath);
             }
             await downloadFile(img.url, localDestPath);
