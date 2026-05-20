@@ -8224,17 +8224,530 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
               </style>
               
               <!-- Hero Section -->
-              <section class="services-hero">
-                <div class="services-hero-content">
-                  <div class="breadcrumbs">
-                    <a href="../index.html">Home</a>
-                    <span>/</span>
-                    <span style="color: #ffffff;">Services</span>
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+              <style>header.et-l.et-l--header { display: none !important; }</style>
+              <!-- Hero Section -->
+              <style>
+                /* Base Reset and Typography for Hero */
+                .hero-section {
+                    font-family: 'Inter', sans-serif;
+                    color: #333;
+                    background-color: #f4f4f4;
+                    overflow-x: hidden;
+                }
+                
+                .hero-section h1, .hero-section h2, .hero-section h3, .hero-section h4, .hero-section h5, .hero-section h6,
+                .new-header h1, .new-header h2, .new-header h3, .new-header h4, .new-header h5, .new-header h6 {
+                    font-family: 'Montserrat', sans-serif;
+                }
+                
+                /* Color Variables */
+                :root {
+                    --primary-red: #bd1a21; /* deep red from design */
+                    --dark-bg: #1c1c1c; /* dark gray */
+                    --black-bg: #111111; /* deeper black for hero */
+                    --text-light: #f5f5f5;
+                    --text-dim: #a0a0a0;
+                }
+                
+                /* ------------------- HEADER ------------------- */
+                .new-header {
+                    background-color: #fff;
+                    font-family: 'Inter', sans-serif;
+                    position: sticky;
+                    top: 0;
+                    z-index: 1000;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                }
+                
+                /* Top Bar */
+                .new-header .top-bar {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: #2b2b2b;
+                    height: 38px;
+                    color: var(--text-light);
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+                
+                .new-header .top-bar-left {
+                    background-color: var(--primary-red);
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 40px;
+                    width: 380px;
+                    clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+                    gap: 8px;
+                }
+                
+                .new-header .top-bar-right {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 40px;
+                    gap: 8px;
+                }
+                
+                /* Middle Header */
+                .new-header .middle-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 40px;
+                    background-color: #fff;
+                    border-bottom: 1px solid #eee;
+                }
+                
+                .new-header .logo img {
+                    height: 60px; /* adjust based on actual logo size */
+                    object-fit: contain;
+                }
+                
+                .new-header .middle-right {
+                    display: flex;
+                    align-items: center;
+                    gap: 40px;
+                }
+                
+                .new-header .book-meeting-top {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+                
+                .new-header .calendar-icon {
+                    color: var(--primary-red);
+                    font-size: 22px;
+                }
+                
+                .new-header .btn-book-meeting {
+                    background-color: var(--primary-red);
+                    color: #fff;
+                    border: none;
+                    padding: 10px 24px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-family: 'Inter', sans-serif;
+                    transition: background-color 0.3s;
+                }
+                
+                .new-header .btn-book-meeting:hover {
+                    background-color: #9e151a;
+                }
+                
+                .new-header .location {
+                    font-size: 14px;
+                    color: #555;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                }
+                
+                .new-header .loc-highlight {
+                    color: var(--primary-red);
+                    font-weight: 600;
+                }
+                
+                .new-header .loc-icon {
+                    color: var(--primary-red);
+                    font-size: 16px;
+                }
+                
+                /* Navbar */
+                .new-header .navbar {
+                    display: flex;
+                    height: 54px;
+                    background-color: var(--primary-red);
+                    position: relative;
+                }
+                
+                .new-header .nav-links {
+                    display: flex;
+                    align-items: center;
+                    padding-left: 40px;
+                    gap: 25px;
+                    flex-grow: 1;
+                }
+                
+                .new-header .nav-links a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    letter-spacing: 0.5px;
+                    transition: color 0.3s;
+                }
+                
+                .new-header .nav-links a:hover {
+                    color: #ffd0d0;
+                }
+                
+                .new-header .nav-whatsapp {
+                    background-color: var(--dark-bg);
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 50px 0 60px;
+                    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0% 100%);
+                }
+                
+                .new-header .nav-whatsapp a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 700;
+                    font-family: 'Montserrat', sans-serif;
+                    letter-spacing: 1px;
+                }
+                
+                /* ------------------- HERO SECTION ------------------- */
+                .hero-section {
+                    position: relative;
+                    background-color: var(--black-bg);
+                    display: flex;
+                    min-height: 650px;
+                    overflow: hidden;
+                }
+                
+                /* Left Content Area */
+                .hero-content {
+                    flex: 1;
+                    z-index: 2;
+                    padding: 100px 40px 100px 60px;
+                    max-width: 700px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                }
+                
+                .tag {
+                    background-color: rgba(255, 255, 255, 0.1);
+                    color: #ddd;
+                    display: inline-block;
+                    padding: 6px 16px;
+                    font-size: 12px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 600;
+                    letter-spacing: 2px;
+                    margin-bottom: 25px;
+                    align-self: flex-start;
+                    border-radius: 2px;
+                }
+                
+                .hero-content h1 {
+                    color: #fff;
+                    font-size: 64px;
+                    font-weight: 800;
+                    line-height: 1.1;
+                    margin-bottom: 25px;
+                    letter-spacing: -0.5px;
+                }
+                
+                .hero-content h1 .highlight {
+                    color: var(--primary-red);
+                }
+                
+                .hero-content p {
+                    color: var(--text-dim);
+                    font-size: 17px;
+                    line-height: 1.6;
+                    margin-bottom: 45px;
+                    max-width: 550px;
+                }
+                
+                /* Hero Buttons */
+                .hero-buttons {
+                    display: flex;
+                    gap: 16px;
+                    flex-wrap: wrap;
+                }
+                
+                .hero-buttons button {
+                    padding: 14px 28px;
+                    font-size: 14px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 700;
+                    border: none;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    border-radius: 3px;
+                    transition: all 0.3s ease;
+                    letter-spacing: 0.5px;
+                }
+                
+                .btn-red {
+                    background-color: var(--primary-red);
+                    color: #fff;
+                }
+                .btn-red:hover {
+                    background-color: #9e151a;
+                }
+                
+                .btn-white {
+                    background-color: #fff;
+                    color: #000;
+                }
+                .btn-white:hover {
+                    background-color: #e0e0e0;
+                }
+                
+                .btn-outline {
+                    background-color: transparent;
+                    color: #fff;
+                    border: 2px solid #fff !important;
+                }
+                .btn-outline:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+                
+                .hero-buttons i {
+                    font-size: 18px;
+                }
+                
+                /* Right Image Area */
+                .hero-image-area {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 65%;
+                    height: 100%;
+                    z-index: 1;
+                }
+                
+                .hero-image-area {
+                    /* Soft fade into the dark background on the left */
+                    -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 100%);
+                    mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.8) 25%, black 100%);
+                }
+                
+                .collage-overflow {
+                    position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    overflow: hidden;
+                }
+                .collage-wrapper {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                .collage-img {
+                    position: absolute;
+                    background-size: cover;
+                    background-position: center;
+                }
+                
+                .img-editor-top {
+                    width: 65%;
+                    height: 55%;
+                    top: -5%;
+                    right: -5%;
+                    background-image: url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 35% 100%);
+                    z-index: 1;
+                }
+                .img-wedding {
+                    width: 60%;
+                    height: 85%;
+                    top: 10%;
+                    left: -5%;
+                    background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                    clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
+                    z-index: 2;
+                    transform: translateX(10px);
+                }
+                .img-red-dress {
+                    width: 45%;
+                    height: 55%;
+                    bottom: -5%;
+                    left: 45%;
+                    background-image: url('https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                    clip-path: polygon(30% 0, 100% 0, 70% 100%, 0% 100%);
+                    z-index: 3;
+                    transform: translate(15px, 15px);
+                }
+                .img-editor-bottom {
+                    width: 50%;
+                    height: 45%;
+                    bottom: -5%;
+                    right: -10%;
+                    background-image: url('https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+                    clip-path: polygon(35% 0, 100% 0, 100% 100%, 0% 100%);
+                    z-index: 1;
+                }
+                
+                /* Circle Badge */
+                .circle-badge {
+                    position: absolute;
+                    bottom: 60px;
+                    left: 40px; /* Positioned near the intersection of content and image */
+                    width: 150px;
+                    height: 150px;
+                    border: 1px solid rgba(212, 175, 55, 0.6); /* Faint gold border */
+                    border-radius: 50%;
+                    background-color: rgba(10, 10, 10, 0.85); /* Semi-transparent dark */
+                    backdrop-filter: blur(5px);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    z-index: 5;
+                    padding: 10px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                }
+                
+                .circle-badge::before {
+                    content: '';
+                    position: absolute;
+                    inset: 4px;
+                    border: 1px dashed rgba(212, 175, 55, 0.4);
+                    border-radius: 50%;
+                }
+                
+                .badge-text-small {
+                    color: #ccc;
+                    font-size: 10px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 500;
+                    letter-spacing: 1px;
+                    margin: 2px 0;
+                }
+                
+                .badge-text-red {
+                    color: var(--primary-red);
+                    font-size: 16px;
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 800;
+                    line-height: 1.1;
+                    margin: 4px 0;
+                    letter-spacing: 0.5px;
+                }
+                
+                .badge-dots {
+                    display: flex;
+                    gap: 4px;
+                    margin-top: 6px;
+                }
+                
+                .badge-dots span {
+                    display: block;
+                    width: 4px;
+                    height: 4px;
+                    background-color: rgba(212, 175, 55, 0.6);
+                    border-radius: 50%;
+                }
+                
+                /* Responsive tweaks for smaller screens */
+                @media (max-width: 1200px) {
+                    .hero-content h1 {
+                        font-size: 50px;
+                    }
+                    .hero-image-area {
+                        width: 55%;
+                    }
+                    .new-header .top-bar-left {
+                        width: 320px;
+                    }
+                    .new-header .nav-links {
+                        gap: 15px;
+                    }
+                }
+              </style>
+
+              <header class="new-header">
+                  <!-- Top Bar -->
+                  <div class="top-bar">
+                      <div class="top-bar-left">
+                          <i class="fa-regular fa-envelope"></i> wow@rajuGFX
+                      </div>
+                      <div class="top-bar-right">
+                          <i class="fa-solid fa-phone"></i> +9202542342
+                      </div>
                   </div>
-                  <h1 style="margin-top: 20px;">Our Premium Services</h1>
-                  <p>Elevate your brand with world-class digital production, high-impact photo & video editing, custom web design, and cutting-edge visual systems engineered to drive growth.</p>
-                </div>
-              </section>
+          
+                  <!-- Middle Header -->
+                  <div class="middle-header">
+                    <div class="logo">
+                      <img 
+                        src="../wp-content/uploads/2025/05/raju_gfx_mandhar_logo.png" 
+                        onerror="this.onerror=null; this.src='../images/whitethemelogo.png';" 
+                        alt="Raju GFX Mandhar"
+                      >
+                    </div>
+                      <div class="middle-right">
+                          <div class="book-meeting-top">
+                              <i class="fa-regular fa-calendar-alt calendar-icon"></i>
+                              <button class="btn-book-meeting">Book Meeting</button>
+                          </div>
+                          <div class="location">
+                              Select Location <span class="loc-highlight">Rajur </span> <i class="fa-solid fa-location-dot loc-icon"></i>
+                          </div>
+                      </div>
+                  </div>
+          
+                  <!-- Navbar -->
+                  <nav class="navbar">
+                      <div class="nav-links">
+                          <a href="../index.html">HOME</a>
+                          <a href="../about/index.html">ABOUT</a>
+                          <a href="../contact/index.html">CONTACT</a>
+                          <a href="../service/index.html">SERVICE </a>
+                          <a href="../portfolio/index.html">PORTFOLIO</a>
+                          <a href="https://wa.me/919202542342">WHATSAPP</a>
+                          <a href="../booking/index.html">BOOK MEETING</a>
+                      </div>
+                      <div class="nav-whatsapp">
+                          <a href="https://wa.me/919202542342">WHATSAPP</a>
+                      </div>
+                  </nav>
+              </header>
+          
+              <!-- Hero Section -->
+              <main class="hero-section">
+                  <div class="hero-content">
+                      <div class="tag">A DIGITAL TOUCH</div>
+                      <h1>PROFESSIONAL <br><span class="highlight">VIDEO EDITING</span> <br>SERVICES</h1>
+                      <p>We transform your raw footage into cinematic stories. Wedding, Events, Reels, Promotional &ndash; We edit it all with creativity &amp; perfection.</p>
+                      <div class="hero-buttons">
+                          <button class="btn-red"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</button>
+                          <button class="btn-white"><i class="fa-solid fa-photo-film"></i> VIEW PORTFOLIO</button>
+                          <button class="btn-outline"><i class="fa-solid fa-phone"></i> CONTACT US</button>
+                      </div>
+                  </div>
+                  <div class="hero-image-area">
+                      <div class="collage-overflow">
+                          <div class="collage-wrapper">
+                              <div class="collage-img img-editor-top"></div>
+                              <div class="collage-img img-wedding"></div>
+                              <div class="collage-img img-red-dress"></div>
+                              <div class="collage-img img-editor-bottom"></div>
+                          </div>
+                      </div>
+                      <div class="circle-badge">
+                          <span class="badge-text-small">CREATING</span>
+                          <span class="badge-text-red">VISUAL STORIES</span>
+                          <span class="badge-text-small">THAT LAST</span>
+                          <span class="badge-text-small">FOREVER</span>
+                          <div class="badge-dots">
+                              <span></span><span></span><span></span>
+                          </div>
+                      </div>
+                  </div>
+              </main>
               
               <!-- Services Catalog -->
 
@@ -8574,6 +9087,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
               <section class="services-container">
+                <div class="services-header" style="text-align: center; margin-bottom: 50px; padding: 0 20px;">
+                  <span style="display: inline-block; padding: 6px 16px; background-color: rgba(189, 26, 33, 0.1); color: #bd1a21; font-size: 13px; font-weight: 700; font-family: 'Montserrat', sans-serif; letter-spacing: 1px; border-radius: 4px; margin-bottom: 15px; text-transform: uppercase;">What We Do</span>
+                  <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(32px, 4vw, 42px); font-weight: 800; color: #fff; margin-bottom: 20px; line-height: 1.2;">OUR PREMIUM <span style="color: #bd1a21;">SERVICES</span></h2>
+                  <p style="font-family: 'Inter', sans-serif; font-size: 16px; color: #aaa; max-width: 650px; margin: 0 auto; line-height: 1.6;">From cinematic wedding films to corporate branding, we bring your vision to life with uncompromising quality, creativity, and a touch of perfection.</p>
+                </div>
                 <div class="services-grid">
                   
                   <!-- Wedding Album Design -->
