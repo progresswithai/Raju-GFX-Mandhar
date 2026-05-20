@@ -8647,6 +8647,239 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
   class="wp-singular page-template-default page page-id-371818 custom-background wp-theme-Divi wp-child-theme-diviconsultingtheme et-tb-has-template et-tb-has-header et-tb-has-footer dsm_fixed_header et_button_custom_icon et_pb_button_helper_class et_cover_background et_pb_gutter windows et_pb_gutters3 et_pb_pagebuilder_layout et_no_sidebar et_divi_theme et-db">
   <div id="page-container">
     <div id="et-boc" class="et-boc">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+              <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+              <style>header.et-l.et-l--header { display: none !important; }</style>
+              <style>
+                /* Color Variables */
+                :root {
+                    --primary-red: #bd1a21; /* deep red from design */
+                    --dark-bg: #1c1c1c; /* dark gray */
+                    --text-light: #f5f5f5;
+                    --text-dim: #a0a0a0;
+                }
+                
+                /* ------------------- HEADER ------------------- */
+                .new-header {
+                    background-color: #fff;
+                    font-family: 'Inter', sans-serif;
+                    position: sticky;
+                    top: 0;
+                    z-index: 1000;
+                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+                }
+                
+                .new-header h1, .new-header h2, .new-header h3, .new-header h4, .new-header h5, .new-header h6 {
+                    font-family: 'Montserrat', sans-serif;
+                }
+                
+                /* Top Bar */
+                .new-header .top-bar {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    background-color: #2b2b2b;
+                    height: 38px;
+                    color: var(--text-light);
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+                
+                .new-header .top-bar-left {
+                    background-color: var(--primary-red);
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 40px;
+                    width: 380px;
+                    clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+                    gap: 8px;
+                }
+                
+                .new-header .top-bar-right {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 40px;
+                    gap: 8px;
+                }
+                
+                /* Middle Header */
+                .new-header .middle-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 15px 40px;
+                    background-color: #fff;
+                    border-bottom: 1px solid #eee;
+                }
+                
+                .new-header .logo img {
+                    height: 60px; /* adjust based on actual logo size */
+                    object-fit: contain;
+                }
+                
+                .new-header .middle-right {
+                    display: flex;
+                    align-items: center;
+                    gap: 40px;
+                }
+                
+                .new-header .book-meeting-top {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                }
+                
+                .new-header .calendar-icon {
+                    color: var(--primary-red);
+                    font-size: 22px;
+                }
+                
+                .new-header .btn-book-meeting {
+                    background-color: var(--primary-red);
+                    color: #fff;
+                    border: none;
+                    padding: 10px 24px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-family: 'Inter', sans-serif;
+                    transition: background-color 0.3s;
+                }
+                
+                .new-header .btn-book-meeting:hover {
+                    background-color: #9e151a;
+                }
+                
+                .new-header .location {
+                    font-size: 14px;
+                    color: #555;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-weight: 500;
+                }
+                
+                .new-header .loc-highlight {
+                    color: var(--primary-red);
+                    font-weight: 600;
+                }
+                
+                .new-header .loc-icon {
+                    color: var(--primary-red);
+                    font-size: 16px;
+                }
+                
+                /* Navbar */
+                .new-header .navbar {
+                    display: flex;
+                    height: 54px;
+                    background-color: var(--primary-red);
+                    position: relative;
+                }
+                
+                .new-header .nav-links {
+                    display: flex;
+                    align-items: center;
+                    padding-left: 40px;
+                    gap: 25px;
+                    flex-grow: 1;
+                }
+                
+                .new-header .nav-links a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 13px;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    letter-spacing: 0.5px;
+                    transition: color 0.3s;
+                }
+                
+                .new-header .nav-links a:hover {
+                    color: #ffd0d0;
+                }
+                
+                .new-header .nav-whatsapp {
+                    background-color: var(--dark-bg);
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0 50px 0 60px;
+                    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0% 100%);
+                }
+                
+                .new-header .nav-whatsapp a {
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 700;
+                    font-family: 'Montserrat', sans-serif;
+                    letter-spacing: 1px;
+                }
+                
+                /* Responsive tweaks for smaller screens */
+                @media (max-width: 1200px) {
+                    .new-header .top-bar-left {
+                        width: 320px;
+                    }
+                    .new-header .nav-links {
+                        gap: 15px;
+                    }
+                }
+              </style>
+
+              <header class="new-header">
+                  <!-- Top Bar -->
+                  <div class="top-bar">
+                      <div class="top-bar-left">
+                          <i class="fa-regular fa-envelope"></i> wow@rajuGFX
+                      </div>
+                      <div class="top-bar-right">
+                          <i class="fa-solid fa-phone"></i> +9202542342
+                      </div>
+                  </div>
+          
+                  <!-- Middle Header -->
+                  <div class="middle-header">
+                      <div class="logo">
+                          <img 
+                            src="../wp-content/uploads/2025/05/raju_gfx_mandhar_logo.png" 
+                            onerror="this.onerror=null; this.src='../images/whitethemelogo.png';" 
+                            alt="Raju GFX Mandhar"
+                          >
+                      </div>
+                      <div class="middle-right">
+                          <div class="book-meeting-top">
+                              <i class="fa-regular fa-calendar-alt calendar-icon"></i>
+                              <button class="btn-book-meeting">Book Meeting</button>
+                          </div>
+                          <div class="location">
+                              Select Location <span class="loc-highlight">Rajur </span> <i class="fa-solid fa-location-dot loc-icon"></i>
+                          </div>
+                      </div>
+                  </div>
+          
+                  <!-- Navbar -->
+                  <nav class="navbar">
+                      <div class="nav-links">
+                          <a href="../index.html">HOME</a>
+                          <a href="../about/index.html">ABOUT</a>
+                          <a href="../contact/index.html">CONTACT</a>
+                          <a href="../service/index.html">SERVICE </a>
+                          <a href="../portfolio/index.html">PORTFOLIO</a>
+                          <a href="https://wa.me/919202542342">WHATSAPP</a>
+                          <a href="../booking/index.html">BOOK MEETING</a>
+                      </div>
+                      <div class="nav-whatsapp">
+                          <a href="https://wa.me/919202542342">WHATSAPP</a>
+                      </div>
+                  </nav>
+              </header>
       <header class="et-l et-l--header">
         <div class="et_builder_inner_content et_pb_gutters3">
           <div class="et_pb_section et_pb_section_0_tb_header dct_header1 et_section_regular">
