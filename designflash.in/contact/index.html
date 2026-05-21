@@ -7532,6 +7532,164 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                         gap: 15px;
                     }
                 }
+
+                /* --- Hamburger Menu Icon --- */
+                .new-header .hamburger-menu {
+                    display: none; /* Hidden on desktop */
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: 26px;
+                    height: 18px;
+                    cursor: pointer;
+                    z-index: 10001; /* Above mobile overlay */
+                    margin-right: 20px;
+                }
+
+                .new-header .hamburger-menu span {
+                    display: block;
+                    height: 3px;
+                    width: 100%;
+                    background-color: #fff;
+                    border-radius: 3px;
+                    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                }
+
+                /* Hamburger active transformation (X animation) */
+                .new-header .hamburger-menu.active span:nth-child(1) {
+                    transform: translateY(7.5px) rotate(45deg);
+                }
+
+                .new-header .hamburger-menu.active span:nth-child(2) {
+                    opacity: 0;
+                    transform: scaleX(0);
+                }
+
+                .new-header .hamburger-menu.active span:nth-child(3) {
+                    transform: translateY(-7.5px) rotate(-45deg);
+                }
+
+                /* --- Mobile Navigation Menu Overlay --- */
+                .new-header .mobile-nav-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    background-color: var(--dark-bg);
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 40px;
+                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                    z-index: 9999;
+                    max-height: 0;
+                    overflow: hidden;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                                padding 0.4s ease, 
+                                opacity 0.3s ease, 
+                                visibility 0.3s ease;
+                    border-top: 3px solid var(--primary-red);
+                }
+
+                .new-header .mobile-nav-menu.active {
+                    max-height: 450px; /* High enough to contain all links */
+                    padding: 20px 40px;
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .new-header .mobile-nav-menu a {
+                    color: var(--text-light);
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    font-family: 'Montserrat', sans-serif;
+                    padding: 14px 0;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                    transition: all 0.3s ease;
+                    letter-spacing: 1px;
+                }
+
+                .new-header .mobile-nav-menu a:last-child {
+                    border-bottom: none;
+                }
+
+                .new-header .mobile-nav-menu a:hover {
+                    color: var(--primary-red);
+                    padding-left: 8px;
+                }
+
+                /* --- Breakpoint Adaptations --- */
+                @media (max-width: 991px) {
+                    .new-header .navbar {
+                        justify-content: flex-end;
+                        align-items: center;
+                        height: 50px;
+                    }
+                    
+                    .new-header .nav-links {
+                        display: none !important;
+                    }
+                    
+                    .new-header .nav-whatsapp {
+                        display: none !important;
+                    }
+                    
+                    .new-header .hamburger-menu {
+                        display: flex;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .new-header {
+                        position: sticky;
+                        top: 0;
+                        z-index: 10000;
+                    }
+                    
+                    .new-header .top-bar {
+                        font-size: 11px;
+                        padding: 0 15px;
+                    }
+                    .new-header .top-bar-left {
+                        width: auto;
+                        padding: 0 15px;
+                        clip-path: none;
+                    }
+                    .new-header .top-bar-right {
+                        padding: 0 15px;
+                    }
+                    
+                    .new-header .middle-header {
+                        flex-direction: column;
+                        gap: 15px;
+                        padding: 15px 20px;
+                        align-items: center;
+                        text-align: center;
+                    }
+                    
+                    .new-header .middle-right {
+                        flex-direction: column;
+                        gap: 12px;
+                        width: 100%;
+                    }
+                    
+                    .new-header .book-meeting-top {
+                        justify-content: center;
+                        width: 100%;
+                    }
+                    
+                    .new-header .btn-book-meeting {
+                        width: 100%;
+                        max-width: 280px;
+                        padding: 12px 24px;
+                    }
+                    
+                    .new-header .location {
+                        justify-content: center;
+                    }
+                }
               </style>
 
               <header class="new-header">
@@ -7567,6 +7725,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
           
                   <!-- Navbar -->
                   <nav class="navbar">
+                      <!-- Hamburger Menu Icon -->
+                      <div class="hamburger-menu" id="hamburger-btn" aria-label="Toggle navigation">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </div>
+                      
                       <div class="nav-links">
                           <a href="../index.html">HOME</a>
                           <a href="../about/index.html">ABOUT</a>
@@ -7579,8 +7744,51 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                       <div class="nav-whatsapp">
                           <a href="https://wa.me/919202542342">WHATSAPP</a>
                       </div>
+                  
+                      
+                      <!-- Mobile Nav Menu Overlay -->
+                      <div class="mobile-nav-menu" id="mobile-menu">
+                          <a href="../index.html">HOME</a>
+                          <a href="../about/index.html">ABOUT</a>
+                          <a href="../contact/index.html">CONTACT</a>
+                          <a href="../service/index.html">SERVICE </a>
+                          <a href="../portfolio/index.html">PORTFOLIO</a>
+                          <a href="https://wa.me/919202542342">WHATSAPP</a>
+                          <a href="../booking/index.html">BOOK MEETING</a>
+                      </div>
                   </nav>
               </header>
+              <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const hamburgerBtn = document.getElementById('hamburger-btn');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    
+                    if (hamburgerBtn && mobileMenu) {
+                        hamburgerBtn.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            hamburgerBtn.classList.toggle('active');
+                            mobileMenu.classList.toggle('active');
+                        });
+                        
+                        // Close menu when clicking outside
+                        document.addEventListener('click', (e) => {
+                            if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target)) {
+                                hamburgerBtn.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                            }
+                        });
+                        
+                        // Close menu when clicking any nav link
+                        const mobileLinks = mobileMenu.querySelectorAll('a');
+                        mobileLinks.forEach(link => {
+                            link.addEventListener('click', () => {
+                                hamburgerBtn.classList.remove('active');
+                                mobileMenu.classList.remove('active');
+                            });
+                        });
+                    }
+                });
+              </script>
       <header class="et-l et-l--header">
         <div class="et_builder_inner_content et_pb_gutters3">
           <div class="et_pb_section et_pb_section_0_tb_header dct_header1 et_section_regular">
