@@ -1,8 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Pointing to the new whitethemlogo.png file
-const srcPath = `C:\\Users\\KALYANI\\.gemini\\antigravity\\brain\\24e9bedb-8818-4fc5-ac03-0e50660203be\\media__1779180262127.png`;
+const srcPath = `E:\\Raju wesbite\\designflash.in\\wp-content\\themes\\Divi\\includes\\builder\\styles\\images\\whitethemelogo.png`;
 const baseDir = `E:\\Raju wesbite\\designflash.in\\wp-content\\uploads`;
 
 try {
@@ -34,18 +33,19 @@ try {
     });
   }
 
-  console.log('Replacing all logo assets with the new White Theme Logo...');
+  console.log('Searching and replacing all logo assets recursively inside wp-content/uploads with White Theme Logo...');
   walkAndReplace(baseDir);
 
-  // Also save it as logo.png and whitethemlogo.png in the uploads folder
+  // Also replace logo.png in the uploads folder just in case
   const destDir = path.join(baseDir, '2025', '04');
   if (fs.existsSync(destDir)) {
     fs.copyFileSync(srcPath, path.join(destDir, 'logo.png'));
     fs.copyFileSync(srcPath, path.join(destDir, 'whitethemlogo.png'));
-    console.log('Saved local copies in uploads folder.');
+    console.log(`Saved copy to: ${path.join(destDir, 'logo.png')}`);
+    console.log(`Saved copy to: ${path.join(destDir, 'whitethemlogo.png')}`);
   }
 
-  console.log('\nLogo replacement complete! Please refresh http://127.0.0.1:3000/ to view the new White Theme Logo.');
+  console.log('\nLogo replacement complete! Please run a hard refresh (Ctrl + F5 or Cmd + Shift + R) on http://127.0.0.1:3000/ to view the new White Theme Logo.');
 } catch (err) {
   console.error('Error replacing logo:', err);
 }

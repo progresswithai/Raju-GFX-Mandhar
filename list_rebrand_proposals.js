@@ -5,7 +5,7 @@ const rootDir = __dirname;
 const htmlFilePath = path.join(rootDir, 'designflash.in', 'index.html');
 
 if (!fs.existsSync(htmlFilePath)) {
-    console.error("Error: designflash.in/index.html not found!");
+    console.error("Error: index.html not found!");
     process.exit(1);
 }
 

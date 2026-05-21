@@ -282,31 +282,31 @@ const customPortfolioHTML = `
 
 const imagesToDownload = [
     // 9 Portfolio Mockup Images
-    { url: "https://designflash.in/wp-content/uploads/2025/01/RST.png.webp", dest: "wp-content/uploads/2025/01/RST.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/07/Group-378.png.webp", dest: "wp-content/uploads/2024/07/Group-378.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/07/Group-379.png.webp", dest: "wp-content/uploads/2024/07/Group-379.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/Baklava-Mockup.png.webp", dest: "wp-content/uploads/2024/10/Baklava-Mockup.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/01/BNB-MC.png.webp", dest: "wp-content/uploads/2025/01/BNB-MC.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/shifiq-Mockup.png.webp", dest: "wp-content/uploads/2024/10/shifiq-Mockup.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/01/Group-441.png.webp", dest: "wp-content/uploads/2025/01/Group-441.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/01/Group-441-2.png.webp", dest: "wp-content/uploads/2025/01/Group-441-2.png.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp", dest: "wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/01/RST.png.webp", dest: "wp-content/uploads/2025/01/RST.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/07/Group-378.png.webp", dest: "wp-content/uploads/2024/07/Group-378.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/07/Group-379.png.webp", dest: "wp-content/uploads/2024/07/Group-379.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/Baklava-Mockup.png.webp", dest: "wp-content/uploads/2024/10/Baklava-Mockup.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/01/BNB-MC.png.webp", dest: "wp-content/uploads/2025/01/BNB-MC.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/shifiq-Mockup.png.webp", dest: "wp-content/uploads/2024/10/shifiq-Mockup.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/01/Group-441.png.webp", dest: "wp-content/uploads/2025/01/Group-441.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/01/Group-441-2.png.webp", dest: "wp-content/uploads/2025/01/Group-441-2.png.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp", dest: "wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp" },
     
     // 6 Services Images ("We’re ready to share our advice...")
-    { url: "https://designflash.in/wp-content/uploads/2024/10/web-design-1.jpg.webp", dest: "wp-content/uploads/2024/10/web-design-1.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/Branding.jpg.webp", dest: "wp-content/uploads/2024/10/Branding.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/Online-ad.jpg.webp", dest: "wp-content/uploads/2024/10/Online-ad.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/seo-1.jpg.webp", dest: "wp-content/uploads/2024/10/seo-1.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/social-media.jpg.webp", dest: "wp-content/uploads/2024/10/social-media.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2024/10/ui_ux-designing.jpg.webp", dest: "wp-content/uploads/2024/10/ui_ux-designing.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/web-design-1.jpg.webp", dest: "wp-content/uploads/2024/10/web-design-1.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/Branding.jpg.webp", dest: "wp-content/uploads/2024/10/Branding.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/Online-ad.jpg.webp", dest: "wp-content/uploads/2024/10/Online-ad.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/seo-1.jpg.webp", dest: "wp-content/uploads/2024/10/seo-1.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/social-media.jpg.webp", dest: "wp-content/uploads/2024/10/social-media.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2024/10/ui_ux-designing.jpg.webp", dest: "wp-content/uploads/2024/10/ui_ux-designing.jpg.webp" },
 
     // 6 Blog Images (3 normal, 3 400x250 thumbnails)
-    { url: "https://designflash.in/wp-content/uploads/2025/10/image1.webp", dest: "wp-content/uploads/2025/10/image1.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/10/image1-400x250.webp", dest: "wp-content/uploads/2025/10/image1-400x250.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/10/68590421-scaled.jpg.webp", dest: "wp-content/uploads/2025/10/68590421-scaled.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/10/68590421-400x250.jpg.webp", dest: "wp-content/uploads/2025/10/68590421-400x250.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/10/Decrease_3-1-scaled.jpg.webp", dest: "wp-content/uploads/2025/10/Decrease_3-1-scaled.jpg.webp" },
-    { url: "https://designflash.in/wp-content/uploads/2025/10/Decrease_3-1-400x250.jpg.webp", dest: "wp-content/uploads/2025/10/Decrease_3-1-400x250.jpg.webp" }
+    { url: "https://rajugfx.in/wp-content/uploads/2025/10/image1.webp", dest: "wp-content/uploads/2025/10/image1.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/10/image1-400x250.webp", dest: "wp-content/uploads/2025/10/image1-400x250.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/10/68590421-scaled.jpg.webp", dest: "wp-content/uploads/2025/10/68590421-scaled.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/10/68590421-400x250.jpg.webp", dest: "wp-content/uploads/2025/10/68590421-400x250.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/10/Decrease_3-1-scaled.jpg.webp", dest: "wp-content/uploads/2025/10/Decrease_3-1-scaled.jpg.webp" },
+    { url: "https://rajugfx.in/wp-content/uploads/2025/10/Decrease_3-1-400x250.jpg.webp", dest: "wp-content/uploads/2025/10/Decrease_3-1-400x250.jpg.webp" }
 ];
 
 function downloadFile(url, destPath) {

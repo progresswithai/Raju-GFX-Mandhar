@@ -9,7 +9,7 @@ console.log("             SYSTEM INTEGRITY & STATUS CHECK");
 console.log("======================================================");
 
 if (!fs.existsSync(htmlFilePath)) {
-    console.log("❌ ERROR: designflash.in/index.html does not exist!");
+    console.log("❌ ERROR: index.html does not exist!");
     process.exit(1);
 }
 
