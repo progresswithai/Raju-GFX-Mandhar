@@ -9420,85 +9420,351 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                       </div>
                     </div>
                   </div>
-                  <div class="et_pb_section et_pb_section_2 et_pb_with_background et_section_regular">
-                    <div class="et_pb_row et_pb_row_3 et_pb_equal_columns et_pb_gutters3">
-                      <div class="et_pb_column et_pb_column_4_4 et_pb_column_6  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div class="et_pb_module et_pb_text et_pb_text_3 dct_title_v3  et_pb_text_align_left et_pb_bg_layout_light">
-                          <div class="et_pb_text_inner">
-                            <h4>Let’s help you!</h4>
-                            <h2>We are dedicated to <span>support your vision</span></h2>
-                          </div>
-                        </div>
-                      </div>
+                  <div class="et_pb_section et_pb_section_2 et_pb_with_background et_section_regular" id="gfx-services-section">
+                    
+                    <!-- Premium Inline Styles for 7 GFX Services Grid -->
+                    <style>
+                      #gfx-services-section {
+                        background-color: rgba(10, 10, 12, 0.95) !important;
+                        padding: 80px 0 !important;
+                        position: relative;
+                        overflow: hidden;
+                      }
+                      
+                      .services-header-row {
+                        max-width: 1200px;
+                        margin: 0 auto 50px auto;
+                        padding: 0 20px;
+                        text-align: left;
+                      }
+                      
+                      .services-header-row h4 {
+                        font-family: 'Poppins', sans-serif !important;
+                        font-size: 16px !important;
+                        font-weight: 700 !important;
+                        color: #B6131D !important;
+                        text-transform: uppercase !important;
+                        letter-spacing: 2px !important;
+                        margin-bottom: 8px !important;
+                        position: relative;
+                        display: inline-block;
+                      }
+                      
+                      .services-header-row h2 {
+                        font-family: 'Poppins', sans-serif !important;
+                        font-size: 42px !important;
+                        font-weight: 800 !important;
+                        color: #ffffff !important;
+                        line-height: 1.2 !important;
+                        margin: 0 !important;
+                      }
+                      
+                      .services-header-row h2 span {
+                        color: #B6131D !important;
+                      }
+                      
+                      .gfx-grid-container {
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        padding: 0 20px;
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+                        gap: 30px;
+                      }
+                      
+                      .gfx-card {
+                        background: rgba(22, 22, 26, 0.85);
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                        border-radius: 16px;
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                        position: relative;
+                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+                        backdrop-filter: blur(10px);
+                        -webkit-backdrop-filter: blur(10px);
+                        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                      }
+                      
+                      .gfx-card::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 3px;
+                        background: #B6131D;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                        z-index: 5;
+                      }
+                      
+                      .gfx-card:hover::before {
+                        transform: scaleX(1);
+                      }
+                      
+                      .gfx-card:hover {
+                        transform: translateY(-8px);
+                        border-color: rgba(182, 19, 29, 0.4);
+                        box-shadow: 0 20px 40px rgba(182, 19, 29, 0.12), 0 0 0 1px rgba(182, 19, 29, 0.2);
+                      }
+                      
+                      .gfx-card-img-wrap {
+                        position: relative;
+                        height: 220px;
+                        overflow: hidden;
+                      }
+                      
+                      .gfx-card-img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                      }
+                      
+                      .gfx-card:hover .gfx-card-img {
+                        transform: scale(1.08);
+                      }
+                      
+                      .gfx-card-overlay {
+                        position: absolute;
+                        inset: 0;
+                        background: linear-gradient(to top, rgba(10, 10, 12, 0.95) 0%, rgba(10, 10, 12, 0.3) 60%, rgba(10, 10, 12, 0.1) 100%);
+                        z-index: 1;
+                      }
+                      
+                      .gfx-card-badge {
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        background: rgba(182, 19, 29, 0.9);
+                        color: #ffffff;
+                        padding: 4px 10px;
+                        font-size: 10px;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                        border-radius: 4px;
+                        z-index: 2;
+                        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                      }
+                      
+                      .gfx-card-body {
+                        padding: 25px;
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        position: relative;
+                        z-index: 2;
+                      }
+                      
+                      .gfx-card-title {
+                        font-family: 'Poppins', sans-serif !important;
+                        font-size: 20px !important;
+                        font-weight: 700 !important;
+                        color: #ffffff !important;
+                        margin: 0 0 10px 0 !important;
+                        line-height: 1.3 !important;
+                      }
+                      
+                      .gfx-card-desc {
+                        font-family: 'Montserrat', sans-serif !important;
+                        font-size: 14px !important;
+                        color: #b4b4b8 !important;
+                        line-height: 1.6 !important;
+                        margin: 0 0 20px 0 !important;
+                        flex-grow: 1;
+                      }
+                      
+                      .gfx-card-btn {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        color: #B6131D !important;
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 14px;
+                        transition: all 0.3s ease;
+                        margin-top: auto;
+                        border: none;
+                        background: transparent;
+                        padding: 0;
+                        cursor: pointer;
+                        width: fit-content;
+                      }
+                      
+                      .gfx-card-btn svg {
+                        transition: transform 0.3s ease;
+                      }
+                      
+                      .gfx-card:hover .gfx-card-btn {
+                        color: #ffffff !important;
+                        text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+                      }
+                      
+                      .gfx-card:hover .gfx-card-btn svg {
+                        transform: translateX(5px);
+                      }
+                      
+                      @media (max-width: 768px) {
+                        #gfx-services-section {
+                          padding: 60px 0 !important;
+                        }
+                        .services-header-row h2 {
+                          font-size: 32px !important;
+                        }
+                        .gfx-grid-container {
+                          grid-template-columns: 1fr;
+                          gap: 20px;
+                        }
+                      }
+                    </style>
+                    
+                    <!-- Section Title Block -->
+                    <div class="services-header-row">
+                      <h4>Let’s help you!</h4>
+                      <h2>We are dedicated to <span>support your vision</span></h2>
                     </div>
-                    <div class="et_pb_row et_pb_row_4 et_pb_equal_columns et_pb_gutters2">
-                      <div class="et_pb_column et_pb_column_1_4 et_pb_column_7  et_pb_css_mix_blend_mode_passthrough">
-                        <div class="et_pb_module et_pb_team_member et_pb_team_member_0 dct_team_v2 et_pb_section_video_on_hover clearfix  et_pb_text_align_center et_pb_bg_layout_light">
-                          <div class="et_pb_team_member_image et-waypoint et_pb_animation_off">
-                            <img decoding="async" width="260" height="260" src="images/event1.jpg" alt="SHAFIQ AKIF AHAMED" class="wp-image-368325" />
+                    
+                    <!-- Services Grid Container -->
+                    <div class="gfx-grid-container">
+                      
+                      <!-- Card 1: Wedding Album Design -->
+                      <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Studio</span>
+                          <img class="gfx-card-img" src="/images/wedding3.jpg" alt="Wedding Album Design" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Wedding Album Design</h3>
+                            <p class="gfx-card-desc">Impeccable layouts for traditional & modern wedding album sheets. We blend emotion with layout theory to construct breathtaking memories.</p>
                           </div>
-                          <div class="et_pb_team_member_description">
-                            <h4 class="et_pb_module_header">SHAFIQ AKIF AHAMED</h4>
-                            <p class="et_pb_member_position">Director &amp; Creative Head</p>
-                            <ul class="et_pb_member_social_links">
-                              <li><a href="#" class="et_pb_font_icon et_pb_facebook_icon"><span>Facebook</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_twitter_icon"><span>X</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_linkedin_icon"><span>LinkedIn</span></a></li>
-                            </ul>
-                          </div>
+                          <a href="/wedding-album-designing-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
                         </div>
                       </div>
                       
-                      <div class="et_pb_column et_pb_column_1_4 et_pb_column_8  et_pb_css_mix_blend_mode_passthrough">
-                        <div class="et_pb_module et_pb_team_member et_pb_team_member_1 dct_team_v2 et_pb_section_video_on_hover clearfix  et_pb_text_align_center et_pb_bg_layout_light">
-                          <div class="et_pb_team_member_image et-waypoint et_pb_animation_off">
-                            <img loading="lazy" decoding="async" width="260" height="260" src="images/event2.jpg" alt="SEYED SAQUIB JAVEED" class="wp-image-368325" />
+                      <!-- Card 2: Pre-Wedding Photo Editing -->
+                      <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Premium</span>
+                          <img class="gfx-card-img" src="/images/wedding2.jpg" alt="Pre-Wedding Photo Editing" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Pre-Wedding Photo Editing</h3>
+                            <p class="gfx-card-desc">Editorial-grade color grading, atmospheric correction, skin retouching, and premium filter applications to elevate raw outdoor captures into portraits.</p>
                           </div>
-                          <div class="et_pb_team_member_description">
-                            <h4 class="et_pb_module_header">SEYED SAQUIB JAVEED</h4>
-                            <p class="et_pb_member_position">Production Executive</p>
-                            <ul class="et_pb_member_social_links">
-                              <li><a href="#" class="et_pb_font_icon et_pb_facebook_icon"><span>Facebook</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_twitter_icon"><span>X</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_linkedin_icon"><span>LinkedIn</span></a></li>
-                            </ul>
-                          </div>
+                          <a href="/pre-wedding-photo-editing-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
                         </div>
                       </div>
                       
-                      <div class="et_pb_column et_pb_column_1_4 et_pb_column_9  et_pb_css_mix_blend_mode_passthrough">
-                        <div class="et_pb_module et_pb_team_member et_pb_team_member_2 dct_team_v2 et_pb_section_video_on_hover clearfix  et_pb_text_align_center et_pb_bg_layout_light">
-                          <div class="et_pb_team_member_image et-waypoint et_pb_animation_off">
-                            <img loading="lazy" decoding="async" width="260" height="260" src="images/event3.jpg" alt="ALTAF KHAN" class="wp-image-368325" />
+                      <!-- Card 3: Cinematic Video Editing -->
+                      <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Cinema</span>
+                          <img class="gfx-card-img" src="/images/videoediting4.jpg" alt="Cinematic Video Editing" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Cinematic Video Editing</h3>
+                            <p class="gfx-card-desc">Breathtaking transitions, professional color grading (LUT application), multi-track sound engineering, and flawless dynamic pacing to craft summaries.</p>
                           </div>
-                          <div class="et_pb_team_member_description">
-                            <h4 class="et_pb_module_header">ALTAF KHAN</h4>
-                            <p class="et_pb_member_position">Lead Video Editor &amp; Motion Artist</p>
-                            <ul class="et_pb_member_social_links">
-                              <li><a href="#" class="et_pb_font_icon et_pb_facebook_icon"><span>Facebook</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_twitter_icon"><span>X</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_linkedin_icon"><span>LinkedIn</span></a></li>
-                            </ul>
-                          </div>
+                          <a href="/corporate-video-youtube-video-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
                         </div>
                       </div>
                       
-                      <div class="et_pb_column et_pb_column_1_4 et_pb_column_10  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div class="et_pb_module et_pb_team_member et_pb_team_member_3 dct_team_v2 et_pb_section_video_on_hover clearfix  et_pb_text_align_center et_pb_bg_layout_light">
-                          <div class="et_pb_team_member_image et-waypoint et_pb_animation_off">
-                            <img loading="lazy" decoding="async" width="260" height="260" src="images/wedding1.jpg" alt="Jeevan" class="wp-image-368325" />
+                      <!-- Card 4: Traditional Video Editing -->
+                      <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Editing</span>
+                          <img class="gfx-card-img" src="/images/videoediting1.jpg" alt="Traditional Video Editing" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Traditional Video Editing</h3>
+                            <p class="gfx-card-desc">Full-length ceremony & event video processing. Clean title overlays, smooth audio blending, and high-fidelity rendering for families.</p>
                           </div>
-                          <div class="et_pb_team_member_description">
-                            <h4 class="et_pb_module_header">Jeevan</h4>
-                            <p class="et_pb_member_position">Senior Graphic Designer</p>
-                            <ul class="et_pb_member_social_links">
-                              <li><a href="#" class="et_pb_font_icon et_pb_facebook_icon"><span>Facebook</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_twitter_icon"><span>X</span></a></li>
-                              <li><a href="#" class="et_pb_font_icon et_pb_linkedin_icon"><span>LinkedIn</span></a></li>
-                            </ul>
-                          </div>
+                          <a href="/video-editing-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
                         </div>
                       </div>
+                      
+                      <!-- Card 5: Poster & Logo Design -->
+                      <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Design</span>
+                          <img class="gfx-card-img" src="/wp-content/uploads/2024/10/Logo-Design.jpg.webp" alt="Poster & Logo Design" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Poster & Logo Design</h3>
+                            <p class="gfx-card-desc">Premium vector branding layouts, typography guidelines, and highly engaging social media promotional posters engineered for maximum engagement.</p>
+                          </div>
+                          <a href="/graphics-design-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 6: Teaser / Highlights -->
+                      <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Viral</span>
+                          <img class="gfx-card-img" src="/images/wedding4.jpg" alt="Teaser / Highlights" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Teaser / Highlights</h3>
+                            <p class="gfx-card-desc">Ultra-premium 1-2 minute highlight reels. Perfectly synced music drops, impactful sound design, and speed ramping optimized for social media feeds.</p>
+                          </div>
+                          <a href="/documentary-wedding-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
+                        </div>
+                      </div>
+                      
+                      <!-- Card 7: Drone Operating -->
+                      <!-- <div class="gfx-card">
+                        <div class="gfx-card-img-wrap">
+                          <span class="gfx-card-badge">Aerial</span>
+                          <img class="gfx-card-img" src="/images/event3.jpg" alt="Drone Operating" />
+                          <div class="gfx-card-overlay"></div>
+                        </div>
+                        <div class="gfx-card-body">
+                          <div>
+                            <h3 class="gfx-card-title">Drone Operating</h3>
+                            <p class="gfx-card-desc">Expert drone operations and stunning aerial visuals. Breathtaking overhead flyovers that add epic scale and dramatic angles to events and films.</p>
+                          </div>
+                          <a href="/photography-services/" class="gfx-card-btn">
+                            Explore Service 
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                          </a>
+                        </div>
+                      </div> -->
+                      
                     </div>
                   </div>
                   <div class="et_pb_section et_pb_section_3 et_pb_with_background et_section_regular">
