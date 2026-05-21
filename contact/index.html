@@ -8705,194 +8705,714 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       </header>
       <div id="et-main-area">
         <div id="main-content">
-          <article id="post-42" class="post-42 page type-page status-publish hentry difl_page_category-mandhar, raipur">
-            <div class="entry-content">
-              <div class="et-l et-l--post">
-                <div class="et_builder_inner_content et_pb_gutters3">
-                  <div class="et_pb_section et_pb_section_0 et_pb_with_background et_section_regular">
-                    <div class="et_pb_row et_pb_row_0 et_pb_equal_columns et_pb_gutters2">
-                      <div
-                        class="et_pb_column et_pb_column_4_4 et_pb_column_0  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div
-                          class="et_pb_module et_pb_text et_pb_text_0 dct_m_header  et_pb_text_align_left et_pb_bg_layout_light">
-                          <div class="et_pb_text_inner">
-                            <h1>Contact</h1>
-                            <ul>
-                              <li><a href="#">Home</a></li>
-                              <li>contact</li>
-                            </ul>
-                          </div>
-                        </div>
+          <article id="post-42" class="post-42 page type-page status-publish hentry" style="background-color: #060608; border: none; margin: 0; padding: 0;">
+            
+            <!-- Exact Screenshot-Accurate Styling Overrides -->
+            <style>
+              .custom-contact-page-wrapper {
+                background-color: #060608;
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+              }
+              
+              .custom-container {
+                width: 90%;
+                max-width: 1200px;
+                margin: 0 auto;
+                position: relative;
+              }
+
+              /* 1. Hero Section Styling */
+              .custom-contact-hero {
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)), url('../images/background-image.png');
+                padding: 130px 0 150px 0;
+                position: relative;
+                text-align: left;
+              }
+              
+              .contact-breadcrumbs {
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: #a0a0a0;
+                margin-bottom: 15px;
+                letter-spacing: 1px;
+              }
+              
+              .contact-breadcrumbs a {
+                color: #ffffff;
+                text-decoration: none;
+                transition: color 0.3s;
+              }
+              
+              .contact-breadcrumbs a:hover {
+                color: #B6131D;
+              }
+              
+              .contact-breadcrumbs span {
+                margin: 0 8px;
+                color: #a0a0a0;
+              }
+              
+              .contact-breadcrumbs .active {
+                color: #ffffff;
+              }
+              
+              .contact-title {
+                font-size: 56px;
+                font-weight: 900;
+                color: #ffffff;
+                letter-spacing: 2px;
+                margin: 0 0 15px 0;
+                line-height: 1.1;
+                font-family: 'Poppins', sans-serif;
+              }
+              
+              .contact-subtitle {
+                font-size: 15px;
+                line-height: 1.6;
+                color: #cccccc;
+                max-width: 580px;
+                margin: 0;
+              }
+
+              /* 2. White curved overlap section container */
+              .custom-contact-body {
+                background-color: #ffffff;
+                border-radius: 40px 40px 0 0;
+                margin-top: -50px;
+                position: relative;
+                z-index: 10;
+                padding: 0 0 90px 0;
+              }
+
+              /* 3. Overlapping Contact Info Cards */
+              .contact-info-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                position: relative;
+                margin-top: -65px;
+                z-index: 20;
+                margin-bottom: 90px;
+              }
+              
+              .info-card {
+                background: #121216;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+                border-radius: 14px;
+                padding: 24px;
+                display: flex;
+                align-items: flex-start;
+                gap: 16px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                text-align: left;
+              }
+              
+              .info-card:hover {
+                transform: translateY(-5px);
+                border-color: rgba(182, 19, 29, 0.4);
+                box-shadow: 0 20px 40px rgba(182, 19, 29, 0.15);
+                background: #181820;
+              }
+              
+              .icon-circle {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: #B6131D;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              }
+              
+              .icon-circle svg {
+                width: 20px;
+                height: 20px;
+                color: #ffffff;
+              }
+              
+              .info-content {
+                display: flex;
+                flex-direction: column;
+              }
+              
+              .info-content h3 {
+                font-size: 13px;
+                text-transform: uppercase;
+                color: #888890;
+                margin: 0 0 6px 0;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+              }
+              
+              .info-content .info-val {
+                font-size: 15px;
+                font-weight: 700;
+                color: #ffffff;
+                margin: 0 0 4px 0;
+                line-height: 1.3;
+              }
+              
+              .info-content .info-val a {
+                color: #ffffff;
+                text-decoration: none;
+                transition: color 0.3s;
+              }
+              
+              .info-content .info-val a:hover {
+                color: #B6131D;
+              }
+              
+              .info-content .info-sub {
+                font-size: 12px;
+                color: #888890;
+                margin: 0;
+              }
+
+              /* 4. Contact Columns */
+              .contact-columns {
+                display: grid;
+                grid-template-columns: 1.15fr 0.85fr;
+                gap: 55px;
+                align-items: start;
+              }
+              
+              .section-tag-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 12px;
+              }
+              
+              .section-tag {
+                font-size: 12px;
+                font-weight: 800;
+                color: #B6131D;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+              }
+              
+              .tag-line {
+                display: inline-block;
+                width: 35px;
+                height: 2px;
+                background: #B6131D;
+              }
+              
+              .column-title {
+                font-size: 40px;
+                font-weight: 900;
+                color: #0b0b0d;
+                margin: 0 0 10px 0;
+                line-height: 1.15;
+                font-family: 'Poppins', sans-serif;
+                text-align: left;
+              }
+              
+              .column-title .text-red {
+                color: #B6131D;
+              }
+              
+              .column-subtitle {
+                font-size: 14px;
+                color: #606068;
+                margin: 0 0 35px 0;
+                line-height: 1.5;
+                text-align: left;
+              }
+              
+              .custom-contact-form {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                text-align: left;
+              }
+              
+              .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+              }
+              
+              .icon-input {
+                position: relative;
+                display: flex;
+                align-items: center;
+              }
+              
+              .input-icon {
+                position: absolute;
+                left: 18px;
+                color: #888890;
+                width: 18px;
+                height: 18px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                pointer-events: none;
+              }
+              
+              .input-icon svg {
+                width: 100%;
+                height: 100%;
+              }
+              
+              .custom-contact-form input,
+              .custom-contact-form select,
+              .custom-contact-form textarea {
+                width: 100%;
+                border: 1px solid #e5e5ec;
+                background: #fcfcfd;
+                border-radius: 10px;
+                padding: 15px 16px 15px 50px;
+                font-size: 14px;
+                font-family: 'Poppins', sans-serif;
+                color: #1b1b22;
+                transition: all 0.3s ease;
+                box-sizing: border-box;
+              }
+              
+              .custom-contact-form select {
+                padding-right: 40px;
+              }
+              
+              .custom-contact-form input:focus,
+              .custom-contact-form select:focus,
+              .custom-contact-form textarea:focus {
+                border-color: #B6131D;
+                background: #ffffff;
+                box-shadow: 0 0 12px rgba(182, 19, 29, 0.15);
+                outline: none;
+              }
+              
+              .custom-contact-form select {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888890' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+                background-repeat: no-repeat;
+                background-position: right 16px center;
+                background-size: 14px;
+              }
+              
+              .textarea-group {
+                grid-column: span 2;
+              }
+              
+              .custom-contact-form textarea {
+                height: 130px;
+                resize: vertical;
+                padding-top: 15px;
+              }
+              
+              .form-submit-row {
+                display: flex;
+                align-items: center;
+                gap: 25px;
+                margin-top: 10px;
+              }
+              
+              .submit-btn {
+                background: #B6131D;
+                border: none;
+                color: #ffffff;
+                padding: 15px 36px;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                box-shadow: 0 5px 15px rgba(182, 19, 29, 0.3);
+                font-family: 'Poppins', sans-serif;
+              }
+              
+              .submit-btn:hover {
+                background: #d81824;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(182, 19, 29, 0.45);
+              }
+              
+              .submit-btn svg {
+                width: 16px;
+                height: 16px;
+              }
+              
+              .dashed-arrow-container {
+                position: relative;
+                width: 120px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+              }
+              
+              .dashed-arrow {
+                width: 100%;
+                height: 100%;
+              }
+
+              /* 5. Contact Image Frame */
+              .contact-image-column {
+                position: relative;
+                width: 100%;
+              }
+              
+              .image-wrapper {
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+                font-size: 0;
+                line-height: 0;
+              }
+              
+              .image-wrapper img {
+                width: 100%;
+                height: auto;
+                display: block;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+              }
+              
+              .emotion-badge {
+                position: absolute;
+                bottom: 24px;
+                left: 24px;
+                right: 24px;
+                background: rgba(18, 18, 22, 0.85);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 14px;
+                padding: 16px 20px;
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                z-index: 20;
+                text-align: left;
+                box-sizing: border-box;
+              }
+              
+              .badge-icon-circle {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background: #B6131D;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+              }
+              
+              .badge-icon-circle svg {
+                width: 16px;
+                height: 16px;
+                color: #ffffff;
+              }
+              
+              .emotion-badge p {
+                font-size: 14px;
+                font-weight: 700;
+                color: #ffffff;
+                margin: 0;
+                line-height: 1.35;
+                font-family: 'Poppins', sans-serif;
+              }
+
+              /* 6. Responsive Styles */
+              @media only screen and (max-width: 1024px) {
+                .contact-info-grid {
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 15px;
+                }
+                .contact-columns {
+                  gap: 40px;
+                }
+              }
+              
+              @media only screen and (max-width: 980px) {
+                .custom-contact-hero {
+                  padding: 100px 0 120px 0;
+                }
+                .contact-title {
+                  font-size: 46px;
+                }
+                .contact-columns {
+                  grid-template-columns: 1fr;
+                  gap: 50px;
+                }
+                .dashed-arrow-container {
+                  display: none;
+                }
+                .image-wrapper img {
+                  aspect-ratio: 4 / 3;
+                }
+              }
+              
+              @media only screen and (max-width: 767px) {
+                .custom-contact-hero {
+                  padding: 80px 0 100px 0;
+                  text-align: center;
+                }
+                .contact-subtitle {
+                  margin: 0 auto;
+                }
+                .contact-title {
+                  font-size: 38px;
+                }
+                .contact-info-grid {
+                  grid-template-columns: 1fr;
+                  margin-top: -50px;
+                  margin-bottom: 50px;
+                }
+                .column-title {
+                  font-size: 30px;
+                }
+                .form-row {
+                  grid-template-columns: 1fr;
+                  gap: 15px;
+                }
+                .textarea-group {
+                  grid-column: span 1;
+                }
+                .emotion-badge {
+                  bottom: 15px;
+                  left: 15px;
+                  right: 15px;
+                  padding: 12px 16px;
+                }
+                .custom-contact-body {
+                  border-radius: 25px 25px 0 0;
+                }
+              }
+            </style>
+
+            <div class="custom-contact-page-wrapper">
+              
+              <!-- 1. Hero Section -->
+              <section class="custom-contact-hero">
+                <div class="custom-container">
+                  <div class="contact-breadcrumbs">
+                    <a href="/">Home</a> <span>&gt;</span> <span class="active">Contact Us</span>
+                  </div>
+                  <h1 class="contact-title">CONTACT US</h1>
+                  <p class="contact-subtitle">
+                    We'd love to hear from you! Whether you have a project in mind, a question, or just want to say hello, feel free to reach out. Our team is here to help you bring your vision to life.
+                  </p>
+                </div>
+              </section>
+
+              <!-- 2. Curved White Body Section -->
+              <section class="custom-contact-body">
+                <div class="custom-container">
+                  
+                  <!-- Overlapping Cards -->
+                  <div class="contact-info-grid">
+                    
+                    <!-- Phone Card -->
+                    <div class="info-card">
+                      <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                      </div>
+                      <div class="info-content">
+                        <h3>Phone</h3>
+                        <p class="info-val"><a href="tel:+9202542342">+9202542342</a></p>
+                        <p class="info-sub">Call us anytime</p>
+                      </div>
+                    </div>
+
+                    <!-- Email Card -->
+                    <div class="info-card">
+                      <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                          <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                      </div>
+                      <div class="info-content">
+                        <h3>Email</h3>
+                        <p class="info-val"><a href="mailto:wow@rajuGFX">wow@rajuGFX</a></p>
+                        <p class="info-sub">Drop us an email</p>
+                      </div>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="info-card">
+                      <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                      </div>
+                      <div class="info-content">
+                        <h3>Location</h3>
+                        <p class="info-val">Mandhar, Raipur, Chhattisgarh, India</p>
+                        <p class="info-sub">Visit our office</p>
+                      </div>
+                    </div>
+
+                    <!-- Working Hours Card -->
+                    <div class="info-card">
+                      <div class="icon-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                      </div>
+                      <div class="info-content">
+                        <h3>Working Hours</h3>
+                        <p class="info-val">Mon - Sat: 10:00 AM - 7:00 PM</p>
+                        <p class="info-sub">Sunday: By Appointment</p>
                       </div>
                     </div>
                   </div>
-                  <div class="et_pb_section et_pb_section_1 et_pb_with_background et_section_regular">
-                    <div class="et_pb_row et_pb_row_1 et_pb_equal_columns et_pb_gutters2">
-                      <div
-                        class="et_pb_column et_pb_column_1_4 et_pb_column_1 et_pb_section_video_on_hover  et_pb_css_mix_blend_mode_passthrough">
-                        <div
-                          class="et_pb_module et_pb_blurb et_pb_blurb_0 et_clickable  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
-                          <div class="et_pb_blurb_content">
-                            <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
-                                  class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span>
-                            </div>
-                            <div class="et_pb_blurb_container">
-                              <h4 class="et_pb_module_header"><span> Call Us </span></h4>
-                              <div class="et_pb_blurb_description">
-                                <p>+9202542342</p>
-                              </div>
-                            </div>
+
+                  <!-- Two Columns: Form & Image -->
+                  <div class="contact-columns">
+                    
+                    <!-- Left Column: Form -->
+                    <div class="contact-form-column">
+                      <div class="section-tag-wrapper">
+                        <span class="section-tag">GET IN TOUCH</span>
+                        <span class="tag-line"></span>
+                      </div>
+                      <h2 class="column-title">Let's Start Your Next <span class="text-red">Project</span></h2>
+                      <p class="column-subtitle">Fill out the form and we will get back to you as soon as possible.</p>
+
+                      <form class="custom-contact-form" action="https://rajugfx.in/contact/" method="post">
+                        
+                        <!-- Name & Email -->
+                        <div class="form-row">
+                          <div class="form-group icon-input">
+                            <span class="input-icon">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                              </svg>
+                            </span>
+                            <input type="text" name="et_pb_contact_name_0" placeholder="Your Name" required>
+                          </div>
+                          
+                          <div class="form-group icon-input">
+                            <span class="input-icon">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                              </svg>
+                            </span>
+                            <input type="email" name="et_pb_contact_email_0" placeholder="Your Email" required>
                           </div>
                         </div>
-                      </div>
-                      <div
-                        class="et_pb_column et_pb_column_1_4 et_pb_column_2 et_pb_section_video_on_hover  et_pb_css_mix_blend_mode_passthrough">
-                        <div
-                          class="et_pb_module et_pb_blurb et_pb_blurb_1 et_clickable  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
-                          <div class="et_pb_blurb_content">
-                            <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
-                                  class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span>
-                            </div>
-                            <div class="et_pb_blurb_container">
-                              <h4 class="et_pb_module_header"><span>Location</span></h4>
-                              <div class="et_pb_blurb_description">
-                                <p>662, Mandhar colony raipur chhattisgarh near by post office tekari 2 pincode-493111,
-                                  mandhar</p>
-                              </div>
-                            </div>
+
+                        <!-- Phone & Subject -->
+                        <div class="form-row">
+                          <div class="form-group icon-input">
+                            <span class="input-icon">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                              </svg>
+                            </span>
+                            <input type="tel" name="et_pb_contact_phone_0" placeholder="Phone Number" required pattern="[0-9\s\-]*">
+                          </div>
+                          
+                          <div class="form-group icon-input">
+                            <span class="input-icon">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                              </svg>
+                            </span>
+                            <select name="et_pb_contact_subject_0" required>
+                              <option value="" disabled selected hidden>Subject</option>
+                              <option value="Wedding Album Design">Wedding Album Design</option>
+                              <option value="Pre-Wedding Photo Editing">Pre-Wedding Photo Editing</option>
+                              <option value="Corporate Video | YouTube Video">Corporate Video | YouTube Video</option>
+                              <option value="Commercial | Advertising">Commercial | Advertising</option>
+                              <option value="Documentary | Wedding">Documentary | Wedding</option>
+                              <option value="Graphics Design">Graphics Design</option>
+                              <option value="Video Editing">Video Editing</option>
+                              <option value="Photography">Photography</option>
+                              <option value="Social Media Work">Social Media Work</option>
+                            </select>
                           </div>
                         </div>
-                      </div>
-                      <div
-                        class="et_pb_column et_pb_column_1_4 et_pb_column_3 et_pb_section_video_on_hover  et_pb_css_mix_blend_mode_passthrough">
-                        <div
-                          class="et_pb_module et_pb_blurb et_pb_blurb_2 et_clickable  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
-                          <div class="et_pb_blurb_content">
-                            <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
-                                  class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span>
-                            </div>
-                            <div class="et_pb_blurb_container">
-                              <h4 class="et_pb_module_header"><span>Send Mail to</span></h4>
-                              <div class="et_pb_blurb_description">
-                                <p><span>ping@rajugfx.in</span></p>
-                              </div>
-                            </div>
+
+                        <!-- Message textarea -->
+                        <div class="form-row">
+                          <div class="form-group icon-input textarea-group">
+                            <span class="input-icon">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20h9"></path>
+                                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+                              </svg>
+                            </span>
+                            <textarea name="et_pb_contact_message_0" placeholder="Your Message" required></textarea>
                           </div>
                         </div>
-                      </div>
-                      <div
-                        class="et_pb_column et_pb_column_1_4 et_pb_column_4 et_pb_section_video_on_hover  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div
-                          class="et_pb_module et_pb_blurb et_pb_blurb_3  et_pb_text_align_center  et_pb_blurb_position_top et_pb_bg_layout_light">
-                          <div class="et_pb_blurb_content">
-                            <div class="et_pb_main_blurb_image"><span class="et_pb_image_wrap"><span
-                                  class="et-waypoint et_pb_animation_top et_pb_animation_top_tablet et_pb_animation_top_phone et-pb-icon"></span></span>
-                            </div>
-                            <div class="et_pb_blurb_container">
-                              <h4 class="et_pb_module_header"><span>Working Hours</span></h4>
-                              <div class="et_pb_blurb_description">
-                                <p>Mon-Sat: 10.00am &#8211; 6pm</p>
-                              </div>
-                            </div>
+
+                        <!-- Submit and Arrow -->
+                        <div class="form-submit-row">
+                          <button type="submit" class="submit-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <line x1="22" y1="2" x2="11" y2="13"></line>
+                              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                            </svg>
+                            Send Message
+                          </button>
+                          <div class="dashed-arrow-container">
+                            <svg class="dashed-arrow" viewBox="0 0 100 40" fill="none">
+                              <path d="M5 35 Q 45 5, 85 25" stroke="#B6131D" stroke-width="2" stroke-dasharray="5 5" />
+                              <path d="M80 17 L 87 26 L 76 28" stroke="#B6131D" stroke-width="2" fill="none" />
+                            </svg>
                           </div>
+                        </div>
+
+                        <input type="hidden" value="et_contact_proccess" name="et_pb_contactform_submit_0" />
+                        <input type="hidden" id="_wpnonce-et-pb-contact-form-submitted-0" name="_wpnonce-et-pb-contact-form-submitted-0" value="29e6a5ad44" />
+                        <input type="hidden" name="_wp_http_referer" value="/contact/" />
+                      </form>
+                    </div>
+
+                    <!-- Right Column: Image with Floating Emotion Badge -->
+                    <div class="contact-image-column">
+                      <div class="image-wrapper">
+                        <img src="../images/wedding1.jpg" alt="Wedding Shoots">
+                        <div class="emotion-badge">
+                          <div class="badge-icon-circle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                              <circle cx="9" cy="7" r="4"></circle>
+                              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                          </div>
+                          <p>We Don't Just Edit, We Create Emotions.</p>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div id="dct_inquiry_v1"
-                    class="et_pb_section et_pb_section_2 dct_plx et_pb_with_background et_section_regular">
-                    <div class="et_pb_row et_pb_row_2 et_pb_equal_columns et_pb_gutters2">
-                      <div
-                        class="et_pb_column et_pb_column_4_4 et_pb_column_5  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div
-                          class="et_pb_module et_pb_text et_pb_text_1 dct_title_v3  et_pb_text_align_center et_pb_bg_layout_light">
-                          <div class="et_pb_text_inner">
-                            <h4>Let&#8217;s help you!</h4>
-                            <h2>Request A Call Back For <span>any kind of help</span></h2>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="et_pb_row et_pb_row_3 et_pb_equal_columns et_pb_gutters2">
-                      <div
-                        class="et_pb_column et_pb_column_4_4 et_pb_column_6  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div id="et_pb_contact_form_0"
-                          class="et_pb_module et_pb_contact_form_0 et_pb_contact_form_container clearfix"
-                          data-form_unique_num="0" data-form_unique_id="03988a48-08c9-410f-9131-2f6d4d3db0b5">
-                          <div class="et-pb-contact-message"></div>
-                          <div class="et_pb_contact">
-                            <form class="et_pb_contact_form clearfix" method="post"
-                              action="https://rajugfx.in/contact/">
-                              <p class="et_pb_contact_field et_pb_contact_field_0 et_pb_contact_field_half"
-                                data-id="name" data-type="input">
-                                <label for="et_pb_contact_name_0" class="et_pb_contact_form_label">Full Name</label>
-                                <input type="text" id="et_pb_contact_name_0" class="input" value=""
-                                  name="et_pb_contact_name_0" data-required_mark="required" data-field_type="input"
-                                  data-original_id="name" placeholder="Full Name">
-                              </p>
-                              <p class="et_pb_contact_field et_pb_contact_field_1 et_pb_contact_field_half et_pb_contact_field_last"
-                                data-id="email" data-type="email">
-                                <label for="et_pb_contact_email_0" class="et_pb_contact_form_label">Enter Email</label>
-                                <input type="text" id="et_pb_contact_email_0" class="input" value=""
-                                  name="et_pb_contact_email_0" data-required_mark="required" data-field_type="email"
-                                  data-original_id="email" placeholder="Enter Email">
-                              </p>
-                              <p class="et_pb_contact_field et_pb_contact_field_2 et_pb_contact_field_half"
-                                data-id="phone" data-type="input">
-                                <label for="et_pb_contact_phone_0" class="et_pb_contact_form_label">Phone</label>
-                                <input type="text" id="et_pb_contact_phone_0" class="input" value=""
-                                  name="et_pb_contact_phone_0" data-required_mark="required" data-field_type="input"
-                                  data-original_id="phone" placeholder="Phone" pattern="[0-9\s\-]*"
-                                  title="Only numbers allowed.">
-                              </p>
-                              <p class="et_pb_contact_field et_pb_contact_field_3 et_pb_contact_field_half et_pb_contact_field_last"
-                                data-id="subject" data-type="select">
-                                <label for="et_pb_contact_subject_0" class="et_pb_contact_form_label">Subject</label>
-                                <select id="et_pb_contact_subject_0" class="et_pb_contact_select input"
-                                  name="et_pb_contact_subject_0" data-required_mark="required" data-field_type="select"
-                                  data-original_id="subject">
-                                  <option value="">Subject</option>
-                                  <option value="Wedding Album Design">Wedding Album Design</option>
-                                  <option value="Pre-Wedding Photo Editing">Pre-Wedding Photo Editing</option>
-                                  <option value="Corporate Video | YouTube Video">Corporate Video | YouTube Video</option>
-                                  <option value="Commercial | Advertising">Commercial | Advertising</option>
-                                  <option value="Documentary | Wedding">Documentary | Wedding</option>
-                                  <option value="Graphics Design">Graphics Design</option>
-                                  <option value="Video Editing">Video Editing</option>
-                                  <option value="Photography">Photography</option>
-                                  <option value="Social Media Work">Social Media Work</option>
-                                </select>
-                              </p>
-                              <input type="hidden" value="et_contact_proccess" name="et_pb_contactform_submit_0" />
-                              <div class="et_contact_bottom_container">
-                                <button type="submit" name="et_builder_submit_button"
-                                  class="et_pb_contact_submit et_pb_button">send</button>
-                              </div>
-                              <input type="hidden" id="_wpnonce-et-pb-contact-form-submitted-0"
-                                name="_wpnonce-et-pb-contact-form-submitted-0" value="29e6a5ad44" /><input type="hidden"
-                                name="_wp_http_referer" value="/contact/" />
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="et_pb_section et_pb_section_3 et_section_regular">
-                    <div class="et_pb_row et_pb_row_4">
-                      <div
-                        class="et_pb_column et_pb_column_4_4 et_pb_column_7  et_pb_css_mix_blend_mode_passthrough et-last-child">
-                        <div class="et_pb_module et_pb_code et_pb_code_0">
-                          <div class="et_pb_code_inner"><iframe
-                              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.328319306501!2d77.63053767405125!3d13.0147522139328!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17aeac32859b%3A0x602e3ea7a8a4f75!2sDesign%20Flash!5e0!3m2!1sen!2sin!4v1723542751041!5m2!1sen!2sin"
-                              width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                              referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
-              </div>
+              </section>
+
             </div>
+
           </article>
         </div>
         <footer class="et-l et-l--footer">
