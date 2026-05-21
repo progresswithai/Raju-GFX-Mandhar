@@ -8432,12 +8432,16 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                 /* Portfolio Hero Styles */
                 .portfolio-hero {
                   background: radial-gradient(circle at 80% 40%, rgba(197, 13, 29, 0.15) 0%, transparent 60%), #060608;
-                  padding: 100px 0 140px 0;
+                  padding: clamp(20px, 3.5vh, 60px) 0;
                   position: relative;
                   overflow: hidden;
                   color: #ffffff;
                   font-family: 'Poppins', 'Montserrat', sans-serif;
                   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                  min-height: calc(100vh - 190px);
+                  display: flex;
+                  align-items: center;
+                  box-sizing: border-box;
                 }
                 
                 .portfolio-hero-container {
@@ -8446,12 +8450,13 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                   padding: 0 20px;
                   position: relative;
                   z-index: 5;
+                  width: 100%;
                 }
                 
                 .portfolio-hero-grid {
                   display: grid;
                   grid-template-columns: 1.15fr 1fr;
-                  gap: 40px;
+                  gap: clamp(20px, 3vw, 40px);
                   align-items: center;
                 }
                 
@@ -8472,15 +8477,15 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                   letter-spacing: 1.5px;
                   text-transform: uppercase;
                   display: inline-block;
-                  margin-bottom: 20px;
+                  margin-bottom: clamp(10px, 2vh, 20px);
                 }
                 
                 .hero-title {
-                  font-size: 58px;
+                  font-size: clamp(38px, 4.5vw, 58px);
                   font-weight: 900;
                   line-height: 1.1;
                   color: #ffffff;
-                  margin: 0 0 15px 0;
+                  margin: 0 0 clamp(10px, 1.5vh, 15px) 0;
                   text-transform: uppercase;
                   letter-spacing: -0.5px;
                 }
@@ -8493,14 +8498,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                   width: 60px;
                   height: 4px;
                   background-color: #c90c1e;
-                  margin-bottom: 25px;
+                  margin-bottom: clamp(15px, 2vh, 25px);
                 }
                 
                 .hero-subtitle {
-                  font-size: 16px;
+                  font-size: clamp(14px, 1.2vw, 16px);
                   line-height: 1.6;
                   color: #94a3b8;
-                  margin-bottom: 35px;
+                  margin-bottom: clamp(20px, 3.5vh, 35px);
                   max-width: 580px;
                 }
                 
@@ -9119,6 +9124,105 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                     font-size: 10px;
                   }
                 }
+
+                /* Height-based media queries to enforce single screen visibility */
+                @media (min-width: 992px) and (max-height: 850px) {
+                  .portfolio-hero {
+                    padding: 15px 0 20px 0;
+                    min-height: calc(100vh - 190px);
+                  }
+                  .hero-badge {
+                    margin-bottom: 8px;
+                    font-size: 11px;
+                    padding: 3px 10px;
+                  }
+                  .hero-title {
+                    font-size: 38px;
+                    margin-bottom: 8px;
+                  }
+                  .hero-accent-line {
+                    margin-bottom: 12px;
+                    height: 3px;
+                  }
+                  .hero-subtitle {
+                    font-size: 13.5px;
+                    margin-bottom: 15px;
+                    line-height: 1.4;
+                  }
+                  .hero-right {
+                    height: 360px;
+                  }
+                  .collage-gold-badge {
+                    width: 120px;
+                    height: 120px;
+                    bottom: -40px;
+                  }
+                  .gold-badge-inner {
+                    width: 106px;
+                    height: 106px;
+                    padding: 5px;
+                  }
+                  .gold-badge-text-top, .gold-badge-text-bottom {
+                    font-size: 6px;
+                    letter-spacing: 1px;
+                  }
+                  .gold-badge-text-middle {
+                    font-size: 9px;
+                  }
+                  .hero-btn {
+                    padding: 10px 22px;
+                    font-size: 13px;
+                  }
+                }
+
+                @media (min-width: 992px) and (max-height: 720px) {
+                  .portfolio-hero {
+                    padding: 10px 0 15px 0;
+                    min-height: calc(100vh - 190px);
+                  }
+                  .hero-badge {
+                    margin-bottom: 6px;
+                    font-size: 10.5px;
+                    padding: 2px 8px;
+                  }
+                  .hero-title {
+                    font-size: 30px;
+                    margin-bottom: 6px;
+                  }
+                  .hero-accent-line {
+                    margin-bottom: 8px;
+                    height: 3px;
+                  }
+                  .hero-subtitle {
+                    font-size: 12.5px;
+                    margin-bottom: 12px;
+                    line-height: 1.35;
+                  }
+                  .hero-right {
+                    height: 300px;
+                  }
+                  .collage-gold-badge {
+                    width: 100px;
+                    height: 100px;
+                    bottom: -35px;
+                  }
+                  .gold-badge-inner {
+                    width: 88px;
+                    height: 88px;
+                    padding: 4px;
+                  }
+                  .gold-badge-text-top, .gold-badge-text-bottom {
+                    font-size: 5px;
+                    letter-spacing: 0.5px;
+                  }
+                  .gold-badge-text-middle {
+                    font-size: 8px;
+                  }
+                  .hero-btn {
+                    padding: 8px 18px;
+                    font-size: 12px;
+                  }
+                }
               </style>
               
               <!-- Hero Section -->
@@ -9189,265 +9293,588 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
               
               <!-- Portfolio Catalog / Event Showcase Section -->
               <section class="portfolio-catalog-section" id="portfolio-showcase">
+                <!-- Custom Scoped Styles for Showcase Section -->
+                <style>
+                  .portfolio-catalog-section {
+                    background-color: #ffffff !important;
+                    padding: 80px 0;
+                    font-family: 'Poppins', 'Montserrat', 'Inter', sans-serif;
+                    color: #1e1e24;
+                    position: relative;
+                    z-index: 10;
+                  }
+
+                  .portfolio-catalog-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                  }
+
+                  /* Tab Bar Styling */
+                  .portfolio-tab-bar {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                    margin-bottom: 50px;
+                    padding-bottom: 10px;
+                  }
+
+                  .portfolio-tab {
+                    background: transparent;
+                    border: none;
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: #1e1e24;
+                    cursor: pointer;
+                    padding: 10px 22px;
+                    border-radius: 8px;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                    outline: none;
+                    font-family: 'Poppins', sans-serif;
+                  }
+
+                  .portfolio-tab:hover {
+                    color: #b6131d;
+                  }
+
+                  .portfolio-tab.active {
+                    background-color: #b6131d !important;
+                    color: #ffffff !important;
+                    box-shadow: 0 6px 20px rgba(182, 19, 29, 0.3);
+                  }
+
+                  .tab-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 18px;
+                    height: 18px;
+                  }
+
+                  .tab-divider {
+                    color: #cccccc;
+                    font-size: 16px;
+                    font-weight: 300;
+                    user-select: none;
+                  }
+
+                  /* Collage Grid Styling */
+                  .portfolio-collage-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 12px;
+                    margin-bottom: 50px;
+                  }
+
+                  .collage-column {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                    transition: all 0.4s ease;
+                  }
+
+                  .collage-item {
+                    position: relative;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+                    background-color: #f7f7f7;
+                    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+                    width: 100%;
+                    cursor: pointer;
+                    opacity: 1;
+                    transform: scale(1);
+                  }
+
+                  .collage-item img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                    transition: transform 0.6s ease;
+                  }
+
+                  /* Column configurations for specific collage geometry matching the screenshot */
+                  .col-large {
+                    height: 460px;
+                  }
+
+                  .col-large .collage-item {
+                    height: 100%;
+                  }
+
+                  .col-split-double {
+                    height: 460px;
+                  }
+
+                  .col-split-double .collage-item {
+                    height: calc(50% - 6px);
+                  }
+
+                  .col-split-triple {
+                    height: 460px;
+                  }
+
+                  .col-split-triple .collage-item {
+                    height: calc(33.333% - 8px);
+                  }
+
+                  /* Image Hover Zoom */
+                  .collage-item:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                  }
+
+                  .collage-item:hover img {
+                    transform: scale(1.04);
+                  }
+
+                  /* Bottom CTA & Stats Section */
+                  .portfolio-bottom-row {
+                    display: grid;
+                    grid-template-columns: 1.25fr 1fr;
+                    gap: 20px;
+                    align-items: stretch;
+                  }
+
+                  /* PDF Card styling */
+                  .portfolio-pdf-card {
+                    background: #ffffff;
+                    border: 1px solid #f0f0f0;
+                    border-radius: 12px;
+                    padding: 24px 30px;
+                    display: flex;
+                    align-items: center;
+                    gap: 24px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
+                  }
+
+                  .pdf-card-icon {
+                    flex-shrink: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                  }
+
+                  .pdf-card-details {
+                    flex-grow: 1;
+                  }
+
+                  .pdf-card-details h3 {
+                    font-size: 19px;
+                    font-weight: 700;
+                    color: #1a1a1e;
+                    margin: 0 0 6px 0 !important;
+                    font-family: 'Poppins', sans-serif;
+                    letter-spacing: -0.3px;
+                  }
+
+                  .pdf-card-details p {
+                    font-size: 13px;
+                    color: #666666;
+                    margin: 0 !important;
+                    line-height: 1.5;
+                  }
+
+                  .pdf-card-btn {
+                    background-color: #b6131d;
+                    color: #ffffff !important;
+                    font-weight: 600;
+                    font-size: 14px;
+                    padding: 12px 24px;
+                    border-radius: 6px;
+                    text-decoration: none !important;
+                    display: inline-flex;
+                    align-items: center;
+                    transition: all 0.3s ease;
+                    white-space: nowrap;
+                    box-shadow: 0 4px 12px rgba(182, 19, 29, 0.15);
+                  }
+
+                  .pdf-card-btn:hover {
+                    background-color: #9c0f16;
+                    transform: translateY(-2px);
+                    box-shadow: 0 6px 16px rgba(182, 19, 29, 0.25);
+                  }
+
+                  /* Stats card styling */
+                  .portfolio-stats-card {
+                    background: #ffffff;
+                    border: 1px solid #f0f0f0;
+                    border-radius: 12px;
+                    padding: 24px 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.01);
+                  }
+
+                  .portfolio-stat-item {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                  }
+
+                  .stat-circle-icon {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    border: 2px solid #b6131d;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #b6131d;
+                    flex-shrink: 0;
+                  }
+
+                  .stat-content {
+                    display: flex;
+                    flex-direction: column;
+                  }
+
+                  .stat-number {
+                    font-size: 21px;
+                    font-weight: 700;
+                    color: #1a1a1e;
+                    line-height: 1.1;
+                    font-family: 'Poppins', sans-serif;
+                  }
+
+                  .stat-label {
+                    font-size: 11px;
+                    color: #777777;
+                    font-weight: 600;
+                    margin-top: 3px;
+                    white-space: nowrap;
+                  }
+
+                  .stat-divider-pipe {
+                    width: 1px;
+                    height: 40px;
+                    background-color: #eaeaea;
+                    align-self: center;
+                  }
+
+                  /* Breakpoints & Responsiveness */
+                  @media (max-width: 1150px) {
+                    .portfolio-bottom-row {
+                      grid-template-columns: 1fr;
+                    }
+                  }
+
+                  @media (max-width: 991px) {
+                    .portfolio-collage-grid {
+                      grid-template-columns: repeat(2, 1fr);
+                    }
+                    .col-large, .col-split-double, .col-split-triple {
+                      height: auto;
+                    }
+                    .col-split-double .collage-item,
+                    .col-split-triple .collage-item {
+                      height: 220px;
+                    }
+                    .col-large .collage-item {
+                      height: 452px;
+                    }
+                    .portfolio-stats-card {
+                      flex-wrap: wrap;
+                      gap: 20px;
+                      justify-content: space-around;
+                    }
+                    .stat-divider-pipe {
+                      display: none;
+                    }
+                    .portfolio-stat-item {
+                      width: calc(50% - 10px);
+                      justify-content: flex-start;
+                    }
+                  }
+
+                  @media (max-width: 767px) {
+                    .portfolio-tab-bar {
+                      gap: 6px;
+                    }
+                    .portfolio-tab {
+                      font-size: 13px;
+                      padding: 8px 14px;
+                    }
+                    .tab-divider {
+                      display: none;
+                    }
+                    .portfolio-collage-grid {
+                      grid-template-columns: 1fr;
+                      gap: 10px;
+                    }
+                    .col-large .collage-item,
+                    .col-split-double .collage-item,
+                    .col-split-triple .collage-item {
+                      height: 240px;
+                    }
+                    .portfolio-pdf-card {
+                      flex-direction: column;
+                      text-align: center;
+                      padding: 24px;
+                    }
+                    .pdf-card-btn {
+                      width: 100%;
+                      justify-content: center;
+                    }
+                    .portfolio-stat-item {
+                      width: 100%;
+                      justify-content: center;
+                    }
+                    .portfolio-stats-card {
+                      padding: 24px;
+                    }
+                  }
+                </style>
+
                 <div class="portfolio-catalog-container">
                   
-                  <div class="catalog-header">
-                    <h2>Our Creative <span>Showcase</span></h2>
-                    <p>Explore our premium work across video production, traditional & modern photography, vector designs, and custom web platforms built to drive conversion.</p>
+                  <!-- 1. Horizontal Tab Filter Bar -->
+                  <div class="portfolio-tab-bar">
+                    <button class="portfolio-tab active" onclick="filterPortfolio('all', this)">
+                      <span class="tab-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+                      </span>
+                      All Works
+                    </button>
+                    <span class="tab-divider">|</span>
+                    
+                    <button class="portfolio-tab" onclick="filterPortfolio('photography', this)">
+                      <span class="tab-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                      </span>
+                      Wedding Photography
+                    </button>
+                    <span class="tab-divider">|</span>
+                    
+                    <button class="portfolio-tab" onclick="filterPortfolio('cinematic', this)">
+                      <span class="tab-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 7a2 2 0 0 0-2.45-1.45L16 7V5a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2l4.55 1.45A2 2 0 0 0 23 17V7z"/></svg>
+                      </span>
+                      Wedding Cinematic
+                    </button>
+                    <span class="tab-divider">|</span>
+                    
+                    <button class="portfolio-tab" onclick="filterPortfolio('prewedding', this)">
+                      <span class="tab-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                      </span>
+                      Pre-Wedding
+                    </button>
+                    <span class="tab-divider">|</span>
+                    
+                    <button class="portfolio-tab" onclick="filterPortfolio('event', this)">
+                      <span class="tab-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M12 14l1 1 2.5-2.5"/></svg>
+                      </span>
+                      Event
+                    </button>
+                    <span class="tab-divider">|</span>
+                    
+                    <button class="portfolio-tab" onclick="filterPortfolio('album', this)">
+                      <span class="tab-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                      </span>
+                      Album Design
+                    </button>
                   </div>
-                  
-                  <!-- Filter Pill Buttons -->
-                  <div class="catalog-filters">
-                    <button class="filter-pill active" onclick="filterCatalog('all', this)">All Projects</button>
-                    <button class="filter-pill" onclick="filterCatalog('video', this)">Video Editing</button>
-                    <button class="filter-pill" onclick="filterCatalog('wedding', this)">Wedding & Photo</button>
-                    <button class="filter-pill" onclick="filterCatalog('graphics', this)">Graphics Design</button>
-                    <button class="filter-pill" onclick="filterCatalog('web', this)">Wedding Album Design</button>
+
+                  <!-- 2. Collage Image Grid -->
+                  <div class="portfolio-collage-grid">
+                    <!-- Col 1 (Large Vertical Group) -->
+                    <div class="collage-column col-large" id="col-large-1">
+                      <div class="collage-item" data-groups="photography,event,album">
+                        <img src="../images/wedding4.jpg" alt="Raju GFX Wedding Album Group Photography" />
+                      </div>
+                    </div>
+                    
+                    <!-- Col 2 (Large Vertical Couple Arch) -->
+                    <div class="collage-column col-large" id="col-large-2">
+                      <div class="collage-item" data-groups="cinematic,prewedding">
+                        <img src="../images/realimage2.png" alt="Prewedding fairy light arch capture" />
+                      </div>
+                    </div>
+                    
+                    <!-- Col 3 (Double Split Stack) -->
+                    <div class="collage-column col-split-double" id="col-split-1">
+                      <div class="collage-item" data-groups="photography,event,album">
+                        <img src="../images/realimage3.png" alt="Sofa sitting group wedding capture" />
+                      </div>
+                      <div class="collage-item" data-groups="cinematic,prewedding,album">
+                        <img src="../images/realimage4.png" alt="Prewedding couple sofa sitting" />
+                      </div>
+                    </div>
+                    
+                    <!-- Col 4 (Triple Split Stack) -->
+                    <div class="collage-column col-split-triple" id="col-split-2">
+                      <div class="collage-item" data-groups="photography,event">
+                        <img src="../images/realimage5.png" alt="Wedding couple and family backdrop" />
+                      </div>
+                      <div class="collage-item" data-groups="photography,event">
+                        <img src="../images/realimage6.png" alt="Traditional family line portrait" />
+                      </div>
+                      <div class="collage-item" data-groups="cinematic,prewedding">
+                        <img src="../images/realimage7.png" alt="Cinematic wedding couples portrait" />
+                      </div>
+                    </div>
                   </div>
-                  
-                  <!-- Portfolio Items Grid -->
-                  <div class="catalog-grid" id="catalog-grid-area">
-                    
-                    <!-- Item 1 (Video) -->
-                    <div class="catalog-item" data-category="video">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Video Editing</span>
-                        <img src="../images/videoediting2.jpg" alt="Cinematic Teaser Highlights">
-                      </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Cinematic Teaser Highlights</h3>
-                        <p class="item-desc">High-impact 1-2 minute teaser cut with perfectly timed audio transitions, sound design, and expert color grades (LUT application).</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
+
+                  <div class="portfolio-collage-grid">
+                    <!-- Col 1 (Large Vertical Group) -->
+                    <div class="collage-column col-large" id="col-large-1">
+                      <div class="collage-item" data-groups="photography,event,album">
+                        <img src="../images/wedding4.jpg" alt="Raju GFX Wedding Album Group Photography" />
                       </div>
                     </div>
                     
-                    <!-- Item 2 (Wedding) -->
-                    <div class="catalog-item" data-category="wedding">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Wedding & Photo</span>
-                        <img src="../images/wedding2.jpg" alt="Traditional Wedding Sheets">
-                      </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Traditional Wedding Layouts</h3>
-                        <p class="item-desc">Luxury wedding sheets layout with premium tone balancing, high-resolution clarity upgrades, and emotional narrative order.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
+                    <!-- Col 2 (Large Vertical Couple Arch) -->
+                    <div class="collage-column col-large" id="col-large-2">
+                      <div class="collage-item" data-groups="cinematic,prewedding">
+                        <img src="../images/realimage2.png" alt="Prewedding fairy light arch capture" />
                       </div>
                     </div>
                     
-                    <!-- Item 3 (Graphics) -->
-                    <div class="catalog-item" data-category="graphics">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Graphics Design</span>
-                        <img src="../images/event1.jpg" alt="Corporate Branding Poster">
+                    <!-- Col 3 (Double Split Stack) -->
+                    <div class="collage-column col-split-double" id="col-split-1">
+                      <div class="collage-item" data-groups="photography,event,album">
+                        <img src="../images/realimage3.png" alt="Sofa sitting group wedding capture" />
                       </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Corporate Promo Banner</h3>
-                        <p class="item-desc">Premium typographic visual assets engineered for print-readiness, visual balance, and high digital engagement.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
+                      <div class="collage-item" data-groups="cinematic,prewedding,album">
+                        <img src="../images/realimage4.png" alt="Prewedding couple sofa sitting" />
                       </div>
                     </div>
                     
-                    <!-- Item 4 (Video) -->
-                    <div class="catalog-item" data-category="video">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Video Editing</span>
-                        <img src="../images/videoediting4.jpg" alt="Dynamic Instagram Reels">
+                    <!-- Col 4 (Triple Split Stack) -->
+                    <div class="collage-column col-split-triple" id="col-split-2">
+                      <div class="collage-item" data-groups="photography,event">
+                        <img src="../images/realimage5.png" alt="Wedding couple and family backdrop" />
                       </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Dynamic Instagram Reels</h3>
-                        <p class="item-desc">Fast-paced, hook-focused shorts and reels optimized with interactive typographic subtitles and sound effects for viral retention.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
+                      <div class="collage-item" data-groups="photography,event">
+                        <img src="../images/realimage6.png" alt="Traditional family line portrait" />
+                      </div>
+                      <div class="collage-item" data-groups="cinematic,prewedding">
+                        <img src="../images/realimage7.png" alt="Cinematic wedding couples portrait" />
                       </div>
                     </div>
-                    
-                    <!-- Item 5 (Wedding) -->
-                    <div class="catalog-item" data-category="wedding">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Wedding & Photo</span>
-                        <img src="../images/wedding4.jpg" alt="Prewedding Color Correction">
-                      </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Atmospheric Outdoor Grading</h3>
-                        <p class="item-desc">Editorial-grade sky replacements, ambient lighting enhancement, and luxury cinematic LUTs applied to raw outdoor captures.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- Item 6 (Graphics) -->
-                    <div class="catalog-item" data-category="graphics">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Graphics Design</span>
-                        <img src="../images/event2.jpg" alt="Luxury Vector Logo Identity">
-                      </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Luxury Vector Logo Design</h3>
-                        <p class="item-desc">Custom logo identity layouts engineered with modern geometric balance and rich visual contrast for digital and physical use.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- Item 7 (Video) -->
-                    <div class="catalog-item" data-category="video">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Video Editing</span>
-                        <img src="../images/videoediting6.jpg" alt="Corporate Documentaries">
-                      </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Corporate Showcase Cuts</h3>
-                        <p class="item-desc">High-end product showcase videos, brand stories, and corporate overviews utilizing smooth panning aerial operations and clean titling.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
-                      </div>
-                    </div>
-                    
-                    <!-- Item 8 (Wedding) -->
-                    <div class="catalog-item" data-category="wedding">
-                      <div class="item-img-wrap">
-                        <span class="item-tag">Wedding & Photo</span>
-                        <img src="../images/wedding6.jpg" alt="Luxury Portrait Retouching">
-                      </div>
-                      <div class="item-details">
-                        <h3 class="item-title">Editorial Bridal Retouching</h3>
-                        <p class="item-desc">High-resolution frequency separation skin retouching, micro-contrast enhancement, and digital makeup balancing for premium wedding albums.</p>
-                        <a href="https://wa.me/919632112657" target="_blank" class="item-link">
-                          Discuss Project
-                          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                        </a>
-                      </div>
-                    </div>
-                    
                   </div>
-                  
-                  <!-- Interactive wedding album design Tab Collage (displays when Website filter active) -->
-                  <div class="web-showcase-container" id="web-showcase-area">
-                    <div class="web-tabs-wrapper">
+
+                  <div class="portfolio-collage-grid">
+                    <!-- Col 1 (Large Vertical Group) -->
+                    <div class="collage-column col-large" id="col-large-1">
+                      <div class="collage-item" data-groups="photography,event,album">
+                        <img src="../images/wedding4.jpg" alt="Raju GFX Wedding Album Group Photography" />
+                      </div>
+                    </div>
+                    
+                    <!-- Col 2 (Large Vertical Couple Arch) -->
+                    <div class="collage-column col-large" id="col-large-2">
+                      <div class="collage-item" data-groups="cinematic,prewedding">
+                        <img src="../images/realimage2.png" alt="Prewedding fairy light arch capture" />
+                      </div>
+                    </div>
+                    
+                    <!-- Col 3 (Double Split Stack) -->
+                    <div class="collage-column col-split-double" id="col-split-1">
+                      <div class="collage-item" data-groups="photography,event,album">
+                        <img src="../images/realimage3.png" alt="Sofa sitting group wedding capture" />
+                      </div>
+                      <div class="collage-item" data-groups="cinematic,prewedding,album">
+                        <img src="../images/realimage4.png" alt="Prewedding couple sofa sitting" />
+                      </div>
+                    </div>
+                    
+                    <!-- Col 4 (Triple Split Stack) -->
+                    <div class="collage-column col-split-triple" id="col-split-2">
+                      <div class="collage-item" data-groups="photography,event">
+                        <img src="../images/realimage5.png" alt="Wedding couple and family backdrop" />
+                      </div>
+                      <div class="collage-item" data-groups="photography,event">
+                        <img src="../images/realimage6.png" alt="Traditional family line portrait" />
+                      </div>
+                      <div class="collage-item" data-groups="cinematic,prewedding">
+                        <img src="../images/realimage7.png" alt="Cinematic wedding couples portrait" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 3. Bottom CTA & Stats Section -->
+                  <div class="portfolio-bottom-row">
+                    <!-- Left Card: View PDF In Full Screen -->
+                    <div class="portfolio-pdf-card">
+                      <div class="pdf-card-icon">
+                        <!-- Custom solid red document with PDF letters -->
+                        <svg width="40" height="48" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1.5 0C0.67 0 0 0.67 0 1.5V28.5C0 29.33 0.67 30 1.5 30H22.5C23.33 30 24 29.33 24 28.5V9L15 0H1.5Z" fill="#B6131D"/>
+                          <path d="M15 0V9H24L15 0Z" fill="#920E16"/>
+                          <path d="M3 14H7.5C8.33 14 9 14.67 9 15.5V17C9 17.83 8.33 18.5 7.5 18.5H4.5V22H3V14ZM4.5 17H7.5V15.5H4.5V17Z" fill="white"/>
+                          <path d="M10.5 14H13.5C15.16 14 16.5 15.34 16.5 17V19C16.5 20.66 15.16 22 13.5 22H10.5V14ZM12 20.5H13.5C14.33 20.5 15 19.83 15 19V17C15 16.17 14.33 15.5 13.5 15.5H12V20.5Z" fill="white"/>
+                          <path d="M18 14H22.5V15.5H19.5V17H22V18.5H19.5V22H18V14Z" fill="white"/>
+                        </svg>
+                      </div>
+                      <div class="pdf-card-details">
+                        <h3>View All Images In Full Screen</h3>
+                        <p>Click the button to open our complete portfolio in PDF format and explore every moment in detail.</p>
+                      </div>
+                      <a href="../wp-content/uploads/2025/04/DEEPAK.01.25.pdf" target="_blank" class="pdf-card-btn">
+                        Open Portfolio PDF
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 6px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2 2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      </a>
+                    </div>
+
+                    <!-- Right Card: Interactive Stats Tray -->
+                    <div class="portfolio-stats-card">
+                      <!-- Stat 1 -->
+                      <div class="portfolio-stat-item">
+                        <div class="stat-circle-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                        </div>
+                        <div class="stat-content">
+                          <span class="stat-number">500+</span>
+                          <span class="stat-label">Events Captured</span>
+                        </div>
+                      </div>
+                      <span class="stat-divider-pipe"></span>
                       
-                      <!-- Vertical Tabs Navigation -->
-                      <div class="web-tabs-menu">
-                        <button class="web-tab-btn active" onclick="switchWebTab(event, 'web-tab-0')">Rs Traders</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-1')">Skynet Automation</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-2')">Manifest Realty</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-3')">The Baklava Company</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-4')">Bounce ‘n’ Build</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-5')">Shafiq Signature</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-6')">BDWC</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-7')">Afifa Foundation</button>
-                        <button class="web-tab-btn" onclick="switchWebTab(event, 'web-tab-8')">Airmaster</button>
+                      <!-- Stat 2 -->
+                      <div class="portfolio-stat-item">
+                        <div class="stat-circle-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <div class="stat-content">
+                          <span class="stat-number">200+</span>
+                          <span class="stat-label">Happy Clients</span>
+                        </div>
                       </div>
+                      <span class="stat-divider-pipe"></span>
                       
-                      <!-- Tab Content Display -->
-                      <div class="web-tab-content-area">
-                        
-                        <!-- Tab 0 -->
-                        <div class="web-tab-content active" id="web-tab-0">
-                          <img src="../wp-content/uploads/2025/01/RST.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&auto=format&fit=crop&q=80';" alt="RS Traders Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">RS Traders</h3>
-                            <p class="web-tab-desc">Design Flash elevates RS Traders’ online presence with a dynamic wedding album design tailored for the metal and rod trading industry. Our design showcases RS Traders’ extensive catalog of high-quality metals and rods, emphasizing reliability and precision in every transaction. With intuitive navigation and impactful visuals, Design Flash ensures that RS Traders’ commitment to excellence and customer satisfaction shines through, making the website a vital asset in connecting with stakeholders and expanding market reach.</p>
-                            <a href="https://rstbangalore.com/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
+                      <!-- Stat 3 -->
+                      <div class="portfolio-stat-item">
+                        <div class="stat-circle-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
                         </div>
-                        
-                        <!-- Tab 1 -->
-                        <div class="web-tab-content" id="web-tab-1">
-                          <img src="../wp-content/uploads/2024/07/Group-378.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=1000&auto=format&fit=crop&q=80';" alt="Skynet Automation Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">Skynet Automation</h3>
-                            <p class="web-tab-desc">Design Flash elevates Sky Net Automation’s online presence with a cutting-edge wedding album design tailored for the automation industry. Our design showcases Sky Net Automation’s innovative solutions and extensive expertise, emphasizing their commitment to technological excellence and customer satisfaction. With intuitive navigation and impactful visuals, Design Flash ensures that Sky Net Automation’s capabilities and achievements are highlighted, providing potential clients with an engaging and informative online experience that reflects their leadership in the automation sector.</p>
-                            <a href="https://skynetautomation.com/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
+                        <div class="stat-content">
+                          <span class="stat-number">6+</span>
+                          <span class="stat-label">Years Experience</span>
                         </div>
-                        
-                        <!-- Tab 2 -->
-                        <div class="web-tab-content" id="web-tab-2">
-                          <img src="../wp-content/uploads/2024/07/Group-379.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1000&auto=format&fit=crop&q=80';" alt="Manifest Realty Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">Manifest Realty</h3>
-                            <p class="web-tab-desc">Design Flash brings Manifest Reality’s vision for exceptional real estate and construction projects to life through a captivating wedding album design. Our design showcases Manifest Reality’s diverse portfolio, highlighting their commitment to quality and innovation. With intuitive navigation and stunning visuals, Design Flash ensures that Manifest Reality’s expertise and dedication shine through, providing potential clients with a compelling online experience that reflects their leadership in the industry.</p>
-                            <a href="https://manifestrealty.in/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
+                      </div>
+                      <span class="stat-divider-pipe"></span>
+                      
+                      <!-- Stat 4 -->
+                      <div class="portfolio-stat-item">
+                        <div class="stat-circle-icon">
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
                         </div>
-                        
-                        <!-- Tab 3 -->
-                        <div class="web-tab-content" id="web-tab-3">
-                          <img src="../wp-content/uploads/2024/10/Baklava-Mockup.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1000&auto=format&fit=crop&q=80';" alt="The Baklava Company Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">The Baklava Company</h3>
-                            <p class="web-tab-desc">Design Flash brings the delectable world of The Baklava Company to life through a visually stunning and user-friendly wedding album design. Our design showcases The Baklava Company’s exquisite range of traditional and innovative baklava creations, highlighting their dedication to quality and craftsmanship. With rich visuals and intuitive navigation, Design Flash ensures that every visitor can easily explore the variety of flavors and offerings, providing an enticing and enjoyable online experience that reflects The Baklava Company’s passion for delivering sweet perfection.</p>
-                            <a href="https://thebaklavacompany.com/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
+                        <div class="stat-content">
+                          <span class="stat-number">1000+</span>
+                          <span class="stat-label">Photos Delivered</span>
                         </div>
-                        
-                        <!-- Tab 4 -->
-                        <div class="web-tab-content" id="web-tab-4">
-                          <img src="../wp-content/uploads/2025/01/BNB-MC.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?w=1000&auto=format&fit=crop&q=80';" alt="Bounce 'n' Build Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">Bounce ‘n’ Build</h3>
-                            <p class="web-tab-desc">Design Flash elevates the Bounce n Build brand with a dynamic and engaging website that captures the essence of fun and creativity. Our design integrates bold visuals and intuitive navigation, allowing visitors to easily explore Bounce n Build’s offerings. Whether users are looking to book a service or learn more about the company, Design Flash ensures a seamless and enjoyable experience that reflects Bounce n Build’s commitment to providing a safe and entertaining environment for children.</p>
-                            <a href="https://bouncenbuild.com/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
-                        </div>
-                        
-                        <!-- Tab 5 -->
-                        <div class="web-tab-content" id="web-tab-5">
-                          <img src="../wp-content/uploads/2024/10/shifiq-Mockup.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1000&auto=format&fit=crop&q=80';" alt="Shafiq Signature Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">Shafiq Signature</h3>
-                            <p class="web-tab-desc">Design Flash creates a sophisticated online presence for Shafiq Signature, embodying the brand’s elegance and luxury in every detail. Our design features a clean, modern layout with intuitive navigation, allowing visitors to effortlessly explore the exclusive range of high-end clothing and accessories. With a focus on rich imagery and sleek design elements, Design Flash ensures that the Shafiq Signature website reflects the brand’s commitment to style, quality, and luxury, offering a premium online experience for discerning customers.</p>
-                            <a href="https://shafiqsignature.com/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
-                        </div>
-                        
-                        <!-- Tab 6 -->
-                        <div class="web-tab-content" id="web-tab-6">
-                          <img src="../wp-content/uploads/2025/01/Group-441.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1000&auto=format&fit=crop&q=80';" alt="BDWC Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">BDWC</h3>
-                            <p class="web-tab-desc">Design Flash crafts a professional and user-centric online platform for BDWC, specializing in unsecured loans and financial solutions. Our design emphasizes clarity and accessibility, enabling visitors to easily navigate through services such as loan assistance, credit card information, and personal finance tips. With a modern aesthetic and engaging visuals, Design Flash ensures that BDWC’s commitment to empowering individuals through financial education and support is clearly communicated, providing users with a seamless and informative online experience.</p>
-                            <a href="https://bdwc.in/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
-                        </div>
-                        
-                        <!-- Tab 7 -->
-                        <div class="web-tab-content" id="web-tab-7">
-                          <img src="../wp-content/uploads/2025/01/Group-441-2.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1000&auto=format&fit=crop&q=80';" alt="Afifa Foundation Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">Afifa Foundation</h3>
-                            <p class="web-tab-desc">Design Flash develops a compassionate and informative online presence for Afifa Healthcare Development Foundation, dedicated to improving healthcare access in underserved communities. Our design prioritizes user experience and accessibility, allowing visitors to easily navigate through vital programs such as health screenings, telemedicine, and community outreach initiatives. Featuring warm imagery and a clear layout, Design Flash effectively communicates Afifa’s mission to promote equitable healthcare solutions, fostering a sense of trust and community engagement while ensuring that users have a seamless and informative online experience.</p>
-                            <a href="https://afifafoundation.com/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
-                        </div>
-                        
-                        <!-- Tab 8 -->
-                        <div class="web-tab-content" id="web-tab-8">
-                          <img src="../wp-content/uploads/2024/11/Airmaster-Mock-up.png.webp" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1000&auto=format&fit=crop&q=80';" alt="Airmaster Website">
-                          <div class="web-tab-details">
-                            <h3 class="web-tab-title">Airmaster</h3>
-                            <p class="web-tab-desc">Design Flash transforms Airmaster’s digital presence with a sleek, functional website crafted for the HVAC industry. The design highlights Airmaster’s wide range of air distribution products and services, emphasizing innovation and precision. With user-friendly navigation and engaging visuals, Design Flash ensures that Airmaster’s commitment to quality and performance resonates with its audience, making the website a cornerstone for building trust and driving business growth.</p>
-                            <a href="https://airmaster.co.in/" target="_blank" class="web-visit-btn">Visit Live Site</a>
-                          </div>
-                        </div>
-                        
                       </div>
                     </div>
                   </div>
@@ -9457,47 +9884,65 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
               
               <!-- Filter & Interactive Javascript -->
               <script>
-                // Main Category Filter
-                function filterCatalog(category, btnElement) {
-                  // Set active filter button styling
-                  const pills = document.querySelectorAll('.filter-pill');
-                  pills.forEach(pill => pill.classList.remove('active'));
+                function filterPortfolio(category, btnElement) {
+                  // Toggle active class on buttons
+                  const tabs = document.querySelectorAll('.portfolio-tab');
+                  tabs.forEach(tab => tab.classList.remove('active'));
                   btnElement.classList.add('active');
                   
-                  const itemsArea = document.getElementById('catalog-grid-area');
-                  const webArea = document.getElementById('web-showcase-area');
+                  const items = document.querySelectorAll('.collage-item');
+                  const columns = document.querySelectorAll('.collage-column');
                   
-                  if (category === 'web') {
-                    // Hide main catalog cards grid, show specialized interactive web tabs
-                    itemsArea.style.display = 'none';
-                    webArea.classList.add('active');
-                  } else {
-                    // Show cards grid, hide specialized web tabs
-                    itemsArea.style.display = 'grid';
-                    webArea.classList.remove('active');
-                    
-                    const cards = document.querySelectorAll('.catalog-item');
-                    cards.forEach(card => {
-                      const itemCat = card.getAttribute('data-category');
-                      if (category === 'all' || itemCat === category) {
-                        card.style.display = 'flex';
+                  // Phase 1: Fade out items that are not in the selected category
+                  items.forEach(item => {
+                    const groups = item.getAttribute('data-groups').split(',');
+                    if (category !== 'all' && !groups.includes(category)) {
+                      item.style.opacity = '0';
+                      item.style.transform = 'scale(0.95)';
+                    }
+                  });
+                  
+                  // Phase 2: After fade out, display none on hidden items, display block on shown items
+                  setTimeout(() => {
+                    items.forEach(item => {
+                      const groups = item.getAttribute('data-groups').split(',');
+                      if (category === 'all' || groups.includes(category)) {
+                        item.style.display = 'block';
                       } else {
-                        card.style.display = 'none';
+                        item.style.display = 'none';
                       }
                     });
-                  }
-                }
-                
-                // Website Showcase Sub-tab Switcher
-                function switchWebTab(evt, tabId) {
-                  const contents = document.querySelectorAll('.web-tab-content');
-                  contents.forEach(content => content.classList.remove('active'));
-                  
-                  const buttons = document.querySelectorAll('.web-tab-btn');
-                  buttons.forEach(btn => btn.classList.remove('active'));
-                  
-                  document.getElementById(tabId).classList.add('active');
-                  evt.currentTarget.classList.add('active');
+                    
+                    // Toggle column display if they contain no visible items
+                    columns.forEach(col => {
+                      const visibleItemsInCol = Array.from(col.querySelectorAll('.collage-item')).filter(i => i.style.display !== 'none');
+                      if (visibleItemsInCol.length === 0) {
+                        col.style.display = 'none';
+                      } else {
+                        col.style.display = 'flex';
+                        // Adjust layout heights if needed for balanced grids when filtered
+                        if (category !== 'all') {
+                          col.style.height = 'auto';
+                          visibleItemsInCol.forEach(i => i.style.height = '220px');
+                        } else {
+                          col.style.height = ''; // reset to stylesheet default
+                          visibleItemsInCol.forEach(i => i.style.height = '');
+                        }
+                      }
+                    });
+                    
+                    // Phase 3: Fade in shown items
+                    setTimeout(() => {
+                      items.forEach(item => {
+                        const groups = item.getAttribute('data-groups').split(',');
+                        if (category === 'all' || groups.includes(category)) {
+                          item.style.opacity = '1';
+                          item.style.transform = 'scale(1)';
+                        }
+                      });
+                    }, 50);
+                    
+                  }, 300);
                 }
               </script>
               
