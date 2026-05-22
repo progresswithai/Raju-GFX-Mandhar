@@ -8805,6 +8805,14 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                     }
                 }
 
+                                /* Hide mobile utility bar and mobile dual-action bar on desktop */
+                .new-header .mobile-utility-bar {
+                    display: none;
+                }
+                .new-header .mobile-dual-bar {
+                    display: none;
+                }
+
                 @media (max-width: 768px) {
                     .new-header {
                         position: sticky;
@@ -8812,46 +8820,201 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                         z-index: 10000;
                     }
                     
+                    /* Hide desktop top-bar */
                     .new-header .top-bar {
-                        font-size: 11px;
-                        padding: 0 15px;
-                    }
-                    .new-header .top-bar-left {
-                        width: auto;
-                        padding: 0 15px;
-                        clip-path: none;
-                    }
-                    .new-header .top-bar-right {
-                        padding: 0 15px;
+                        display: none !important;
                     }
                     
+                    /* Make middle header dynamic horizontal row */
                     .new-header .middle-header {
-                        flex-direction: column;
-                        gap: 15px;
-                        padding: 15px 20px;
-                        align-items: center;
-                        text-align: center;
+                        display: flex !important;
+                        flex-direction: row !important;
+                        justify-content: space-between !important;
+                        align-items: center !important;
+                        padding: 10px 15px !important;
+                        gap: 0 !important;
+                        background-color: #fff !important;
+                        border-bottom: 1px solid #eee !important;
+                        height: 70px !important;
                     }
                     
+                    .new-header .logo img {
+                        height: 48px !important;
+                        object-fit: contain !important;
+                    }
+                    
+                    /* Hide original desktop elements */
                     .new-header .middle-right {
-                        flex-direction: column;
-                        gap: 12px;
-                        width: 100%;
+                        display: none !important;
                     }
                     
-                    .new-header .book-meeting-top {
-                        justify-content: center;
-                        width: 100%;
+                    /* Show mobile utility bar */
+                    .new-header .mobile-utility-bar {
+                        display: flex !important;
+                        flex-direction: row !important;
+                        align-items: center !important;
+                        gap: 0 !important;
+                        width: auto !important;
                     }
                     
-                    .new-header .btn-book-meeting {
-                        width: 100%;
-                        max-width: 280px;
-                        padding: 12px 24px;
+                    /* Mobile Location Indicator styling */
+                    .new-header .location-mobile {
+                        display: flex !important;
+                        align-items: center !important;
+                        gap: 4px !important;
+                        font-size: 13px !important;
+                        font-weight: 500 !important;
+                        color: #4a4a4a !important;
+                        text-decoration: none !important;
                     }
                     
-                    .new-header .location {
-                        justify-content: center;
+                    .new-header .location-mobile .loc-icon-red {
+                        color: #bd1a21 !important;
+                        font-size: 14px !important;
+                    }
+                    
+                    .new-header .location-mobile .loc-name {
+                        font-family: 'Inter', sans-serif !important;
+                    }
+                    
+                    .new-header .location-mobile .loc-dropdown-arrow {
+                        color: #bd1a21 !important;
+                        font-family: 'ETmodules', sans-serif !important;
+                        font-weight: 700 !important;
+                        margin-left: 2px !important;
+                        font-size: 10px !important;
+                    }
+                    
+                    /* Mobile Dividers */
+                    .new-header .mobile-divider {
+                        width: 1px !important;
+                        height: 25px !important;
+                        background-color: #e0e0e0 !important;
+                        margin: 0 10px !important;
+                        display: block !important;
+                    }
+                    
+                    /* Call Button */
+                    .new-header .mobile-call-btn {
+                        background-color: #bd1a21 !important;
+                        color: #fff !important;
+                        width: 36px !important;
+                        height: 36px !important;
+                        border-radius: 6px !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        text-decoration: none !important;
+                        transition: background-color 0.2s ease !important;
+                    }
+                    
+                    .new-header .mobile-call-btn:hover {
+                        background-color: #9e151a !important;
+                    }
+                    
+                    .new-header .mobile-call-btn i {
+                        font-size: 16px !important;
+                    }
+                    
+                    /* Mobile Hamburger Button */
+                    .new-header .hamburger-menu {
+                        display: flex !important;
+                        flex-direction: column !important;
+                        justify-content: space-between !important;
+                        width: 24px !important;
+                        height: 16px !important;
+                        cursor: pointer !important;
+                        z-index: 10001 !important;
+                        margin-right: 0 !important;
+                    }
+                    
+                    .new-header .hamburger-menu span {
+                        background-color: #000 !important; /* Sleek black lines */
+                        height: 2px !important;
+                        width: 100% !important;
+                        display: block !important;
+                        border-radius: 1px !important;
+                        transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
+                    }
+                    
+                    /* Hamburger toggle active animations */
+                    .new-header .hamburger-menu.active span:nth-child(1) {
+                        transform: translateY(7px) rotate(45deg) !important;
+                    }
+                    
+                    .new-header .hamburger-menu.active span:nth-child(2) {
+                        opacity: 0 !important;
+                        transform: scaleX(0) !important;
+                    }
+                    
+                    .new-header .hamburger-menu.active span:nth-child(3) {
+                        transform: translateY(-7px) rotate(-45deg) !important;
+                    }
+                    
+                    /* Hide navbar container row spacing on mobile */
+                    .new-header .navbar {
+                        height: 0 !important;
+                        min-height: 0 !important;
+                        padding: 0 !important;
+                        margin: 0 !important;
+                        border: none !important;
+                        background: transparent !important;
+                    }
+                    
+                    /* Mobile Dual Action slant button bar styling */
+                    .new-header .mobile-dual-bar {
+                        display: flex !important;
+                        height: 44px !important;
+                        width: 100% !important;
+                        background-color: #000 !important;
+                        overflow: hidden !important;
+                    }
+                    
+                    .new-header .mobile-dual-left {
+                        background-color: #bd1a21 !important;
+                        color: #fff !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        gap: 8px !important;
+                        font-size: 13px !important;
+                        font-weight: 600 !important;
+                        text-decoration: none !important;
+                        width: 58% !important;
+                        height: 100% !important;
+                        clip-path: polygon(0 0, 100% 0, calc(100% - 15px) 100%, 0 100%) !important;
+                        z-index: 2 !important;
+                        padding-right: 10px !important;
+                        font-family: 'Inter', sans-serif !important;
+                    }
+                    
+                    .new-header .mobile-dual-left i {
+                        font-size: 14px !important;
+                    }
+                    
+                    .new-header .mobile-dual-right {
+                        background-color: #000 !important;
+                        color: #fff !important;
+                        display: flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        gap: 8px !important;
+                        font-size: 13px !important;
+                        font-weight: 700 !important;
+                        letter-spacing: 0.5px !important;
+                        text-transform: uppercase !important;
+                        text-decoration: none !important;
+                        width: 42% !important;
+                        height: 100% !important;
+                        margin-left: -15px !important;
+                        padding-left: 20px !important;
+                        z-index: 1 !important;
+                        font-family: 'Montserrat', sans-serif !important;
+                    }
+                    
+                    .new-header .mobile-dual-right i {
+                        color: #25d366 !important; /* WhatsApp brand green */
+                        font-size: 16px !important;
                     }
                 }
               </style>
@@ -8882,21 +9045,42 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                               <button class="btn-book-meeting">Contact us</button>
                           </div>
                           <div class="location">
-                               <span class="loc-highlight">Mandhar </span> <i class="fa-solid fa-location-dot loc-icon"></i>
+                               <span class="loc-highlight">Mandhar  </span> <i class="fa-solid fa-location-dot loc-icon"></i>
+                          </div>
+                      </div>
+                      
+                      <!-- Mobile Utility Bar -->
+                      <div class="mobile-utility-bar">
+                          <div class="location-mobile">
+                              <i class="fa-solid fa-location-dot loc-icon-red"></i>
+                              <span class="loc-name">Mandhar</span>
+                              <span class="loc-dropdown-arrow">3</span>
+                          </div>
+                          <div class="mobile-divider"></div>
+                          <a href="tel:+9202542342" class="mobile-call-btn">
+                              <i class="fa-solid fa-phone"></i>
+                          </a>
+                          <div class="mobile-divider"></div>
+                          <div class="hamburger-menu" id="hamburger-btn" aria-label="Toggle navigation">
+                              <span></span>
+                              <span></span>
+                              <span></span>
                           </div>
                       </div>
                   </div>
+
+                  <!-- Mobile Dual Action Slanted Button Bar -->
+                  <div class="mobile-dual-bar">
+                      <a href="../contact/index.html" class="mobile-dual-left">
+                          <i class="fa-regular fa-calendar-alt"></i> Book Meeting
+                      </a>
+                      <a href="https://wa.me/919202542342" class="mobile-dual-right" target="_blank">
+                          <i class="fa-brands fa-whatsapp"></i> WHATSAPP
+                      </a>
+                  </div>
           
                   <!-- Navbar -->
-                  <!-- Navbar -->
                   <nav class="navbar">
-                      <!-- Hamburger Menu Icon -->
-                      <div class="hamburger-menu" id="hamburger-btn" aria-label="Toggle navigation">
-                          <span></span>
-                          <span></span>
-                          <span></span>
-                      </div>
-                      
                       <div class="nav-links">
                           <a href="../index.html">HOME</a>
                           <a href="../about/index.html">ABOUT</a>
