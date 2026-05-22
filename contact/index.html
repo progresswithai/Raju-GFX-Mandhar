@@ -8191,7 +8191,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                 <div
                   class="et_pb_button_module_wrapper et_pb_button_3_tb_header_wrapper et_pb_button_alignment_right et_pb_module ">
                   <a class="et_pb_button et_pb_button_3_tb_header et_pb_bg_layout_light"
-                    href="https://api.whatsapp.com/message/XHAQM2L2VQDKH1?autoload=1&amp;app_absent=0">Whatsapp</a>
+                    href="https://wa.me/919202542342">Whatsapp</a>
                 </div>
               </div>
             </div>
@@ -9628,7 +9628,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
                   <div
                     class="et_pb_button_module_wrapper et_pb_button_0_tb_footer_wrapper et_pb_button_alignment_right et_pb_button_alignment_tablet_center et_pb_button_alignment_phone_center et_pb_module ">
                     <a class="et_pb_button et_pb_button_0_tb_footer dct_btn et_pb_bg_layout_light"
-                      href="https://api.whatsapp.com/message/XHAQM2L2VQDKH1?autoload=1&amp;app_absent=0"
+                      href="https://wa.me/919202542342"
                       target="_blank">Consult with us</a>
                   </div>
                 </div>
@@ -11511,6 +11511,135 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
       font-weight: 700 !important;
     }
   </style>
+
+<!-- Bulletproof FAQ Accordion Toggle Fix -->
+<script type="text/javascript">
+  (function() {
+    function initFAQ() {
+      const toggles = document.querySelectorAll('.et_pb_toggle');
+      if (toggles.length === 0) return;
+
+      toggles.forEach(function(toggle) {
+        const title = toggle.querySelector('.et_pb_toggle_title');
+        const content = toggle.querySelector('.et_pb_toggle_content');
+
+        if (!toggle.hasAttribute('data-faq-bound')) {
+          toggle.setAttribute('data-faq-bound', 'true');
+
+          // Ensure inline overflow hidden for smooth transitions
+          if (content) {
+            content.style.overflow = 'hidden';
+          }
+
+          // Initial state setup based on Divi classes
+          if (toggle.classList.contains('et_pb_toggle_open')) {
+            if (content) {
+              content.style.display = 'block';
+              content.style.opacity = '1';
+              content.style.height = 'auto';
+            }
+          } else {
+            if (content) {
+              content.style.display = 'none';
+              content.style.opacity = '0';
+              content.style.height = '0';
+            }
+          }
+
+          if (title) {
+            title.style.cursor = 'pointer';
+            title.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+
+              const isOpen = toggle.classList.contains('et_pb_toggle_open');
+              const accordion = toggle.closest('.et_pb_accordion');
+
+              if (accordion) {
+                // Accordion behavior: close other toggles inside the same accordion container
+                const siblingToggles = accordion.querySelectorAll('.et_pb_toggle');
+                siblingToggles.forEach(function(sib) {
+                  if (sib === toggle) return;
+                  
+                  const sibContent = sib.querySelector('.et_pb_toggle_content');
+                  if (sib.classList.contains('et_pb_toggle_open')) {
+                    sib.classList.remove('et_pb_toggle_open');
+                    sib.classList.add('et_pb_toggle_close');
+                    if (sibContent) {
+                      sibContent.style.transition = 'opacity 0.2s ease, height 0.25s ease';
+                      sibContent.style.height = sibContent.scrollHeight + 'px';
+                      sibContent.offsetHeight; // force reflow
+                      sibContent.style.height = '0';
+                      sibContent.style.opacity = '0';
+                      setTimeout(function() {
+                        if (!sib.classList.contains('et_pb_toggle_open')) {
+                          sibContent.style.display = 'none';
+                        }
+                      }, 250);
+                    }
+                  }
+                });
+              }
+
+              // Toggle clicked one
+              if (!isOpen) {
+                toggle.classList.remove('et_pb_toggle_close');
+                toggle.classList.add('et_pb_toggle_open');
+                if (content) {
+                  content.style.display = 'block';
+                  content.style.transition = 'opacity 0.2s ease, height 0.25s ease';
+                  content.style.height = '0';
+                  content.style.opacity = '0';
+                  content.offsetHeight; // force reflow
+                  content.style.height = content.scrollHeight + 'px';
+                  content.style.opacity = '1';
+                  
+                  setTimeout(function() {
+                    if (toggle.classList.contains('et_pb_toggle_open')) {
+                      content.style.height = 'auto';
+                    }
+                  }, 250);
+                }
+              } else {
+                toggle.classList.remove('et_pb_toggle_open');
+                toggle.classList.add('et_pb_toggle_close');
+                if (content) {
+                  content.style.transition = 'opacity 0.2s ease, height 0.25s ease';
+                  content.style.height = content.scrollHeight + 'px';
+                  content.offsetHeight; // force reflow
+                  content.style.height = '0';
+                  content.style.opacity = '0';
+                  setTimeout(function() {
+                    if (!toggle.classList.contains('et_pb_toggle_open')) {
+                      content.style.display = 'none';
+                    }
+                  }, 250);
+                }
+              }
+            });
+          }
+        }
+      });
+    }
+
+    // Initialize immediately, on DOM ready, and window load
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFAQ);
+    } else {
+      initFAQ();
+    }
+    window.addEventListener('load', initFAQ);
+
+    // Safeguard polling interval to capture late dynamically-rendered Divi resets
+    let count = 0;
+    const interval = setInterval(function() {
+      initFAQ();
+      count++;
+      if (count > 8) clearInterval(interval);
+    }, 1000);
+  })();
+</script>
+
 </body>
 
 </html>
