@@ -14924,7 +14924,7 @@ btn.addEventListener('click',function(e){e.stopPropagation();dropdown.classList.
                         }
                       }
 
-                      /* PDF Album Selection Modal Styles */
+                      /* PDF Album Selection Modal Styles - Card View Version */
                       .pdf-modal-overlay {
                         display: none;
                         position: fixed;
@@ -14932,8 +14932,8 @@ btn.addEventListener('click',function(e){e.stopPropagation();dropdown.classList.
                         left: 0;
                         width: 100%;
                         height: 100%;
-                        background: rgba(0, 0, 0, 0.6);
-                        backdrop-filter: blur(5px);
+                        background: rgba(0, 0, 0, 0.65);
+                        backdrop-filter: blur(8px);
                         z-index: 100000;
                         align-items: center;
                         justify-content: center;
@@ -14948,14 +14948,14 @@ btn.addEventListener('click',function(e){e.stopPropagation();dropdown.classList.
 
                       .pdf-modal-card {
                         background: #FFFFFF;
-                        border-radius: 16px;
-                        width: 90%;
-                        max-width: 500px;
-                        padding: 30px;
-                        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+                        border-radius: 20px;
+                        width: 92%;
+                        max-width: 760px; /* Wider for side-by-side cards */
+                        padding: 35px 30px;
+                        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
                         position: relative;
-                        transform: translateY(-20px);
-                        transition: transform 0.3s ease;
+                        transform: translateY(-30px);
+                        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
                       }
 
                       .pdf-modal-overlay.show .pdf-modal-card {
@@ -14964,25 +14964,32 @@ btn.addEventListener('click',function(e){e.stopPropagation();dropdown.classList.
 
                       .pdf-modal-close {
                         position: absolute;
-                        top: 15px;
-                        right: 15px;
-                        background: none;
+                        top: 18px;
+                        right: 18px;
+                        background: rgba(0, 0, 0, 0.05);
                         border: none;
-                        font-size: 28px;
-                        color: #888;
+                        font-size: 24px;
+                        color: #555;
                         cursor: pointer;
                         line-height: 1;
-                        transition: color 0.2s;
-                        padding: 5px;
+                        transition: all 0.2s;
+                        padding: 0;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
                       }
 
                       .pdf-modal-close:hover {
-                        color: #B6131D;
+                        background: #B6131D;
+                        color: #FFFFFF;
                       }
 
                       .pdf-modal-title {
                         font-family: 'Poppins', 'Montserrat', sans-serif;
-                        font-size: 22px;
+                        font-size: 24px;
                         font-weight: 800;
                         color: #111;
                         margin-top: 0;
@@ -14992,88 +14999,132 @@ btn.addEventListener('click',function(e){e.stopPropagation();dropdown.classList.
 
                       .pdf-modal-subtitle {
                         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        font-size: 13.5px;
+                        font-size: 14px;
                         color: #666;
                         text-align: center;
-                        margin-bottom: 24px;
+                        margin-bottom: 28px;
                         line-height: 1.5;
                       }
 
-                      .pdf-options-container {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 16px;
+                      /* Responsive Card Grid */
+                      .pdf-options-container.card-view {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        gap: 24px;
                       }
 
-                      .pdf-option-card {
+                      .pdf-album-card-item {
                         display: flex;
-                        align-items: center;
-                        gap: 16px;
-                        padding: 16px 20px;
-                        border: 1px solid #EAEAEA;
-                        border-radius: 12px;
+                        flex-direction: column;
+                        border: 1px solid #E6E6E6;
+                        border-radius: 14px;
                         text-decoration: none !important;
                         color: inherit !important;
                         transition: all 0.3s ease;
-                        background: #FAFAFA;
+                        background: #FFFFFF;
+                        overflow: hidden;
+                        box-shadow: 0 4px 10px rgba(0,0,0,0.02);
                       }
 
-                      .pdf-option-card:hover {
+                      .pdf-album-card-item:hover {
                         border-color: #B6131D;
-                        background: #FFF5F5;
-                        transform: translateY(-2px);
-                        box-shadow: 0 6px 15px rgba(182, 19, 29, 0.08);
+                        transform: translateY(-6px);
+                        box-shadow: 0 12px 28px rgba(182, 19, 29, 0.12);
                       }
 
-                      .pdf-option-icon {
-                        background: rgba(182, 19, 29, 0.08);
-                        width: 52px;
-                        height: 52px;
-                        border-radius: 10px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-shrink: 0;
-                        transition: all 0.3s ease;
+                      .pdf-album-card-img-wrap {
+                        width: 100%;
+                        height: 200px;
+                        position: relative;
+                        overflow: hidden;
+                        background: #F3F3F3;
                       }
 
-                      .pdf-option-card:hover .pdf-option-icon {
+                      .pdf-album-card-img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.6s ease;
+                      }
+
+                      .pdf-album-card-item:hover .pdf-album-card-img {
+                        transform: scale(1.06);
+                      }
+
+                      .pdf-album-card-badge {
+                        position: absolute;
+                        top: 12px;
+                        left: 12px;
                         background: #B6131D;
+                        color: #FFFFFF;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 10px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        padding: 4px 10px;
+                        border-radius: 20px;
+                        letter-spacing: 0.5px;
+                        box-shadow: 0 4px 10px rgba(182, 19, 29, 0.3);
                       }
 
-                      .pdf-option-card:hover .pdf-option-icon svg {
-                        stroke: #FFFFFF;
-                      }
-
-                      .pdf-option-info {
+                      .pdf-album-card-content {
+                        padding: 18px 20px 20px 20px;
+                        display: flex;
+                        flex-direction: column;
                         flex-grow: 1;
                       }
 
-                      .pdf-option-info h4 {
+                      .pdf-album-card-content h4 {
                         font-family: 'Poppins', sans-serif;
-                        margin: 0;
-                        font-size: 15px;
+                        margin: 0 0 8px 0;
+                        font-size: 16px;
                         font-weight: 700;
                         color: #111;
                       }
 
-                      .pdf-option-tag {
-                        font-size: 11px;
-                        color: #777;
-                        display: inline-block;
-                        margin-top: 4px;
+                      .pdf-album-card-content p {
+                        font-family: 'Segoe UI', sans-serif;
+                        font-size: 12.5px;
+                        color: #666;
+                        line-height: 1.5;
+                        margin: 0 0 18px 0;
+                        flex-grow: 1;
                       }
 
-                      .pdf-option-action {
+                      .pdf-album-card-btn {
+                        align-self: flex-start;
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        background: #FAFAFA;
+                        border: 1px solid #E6E6E6;
+                        color: #111;
                         font-family: 'Poppins', sans-serif;
                         font-size: 12px;
                         font-weight: 700;
-                        color: #B6131D;
-                        transition: transform 0.2s;
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        transition: all 0.2s ease;
                       }
 
-                      .pdf-option-card:hover .pdf-option-action {
-                        transform: translateX(3px);
+                      .pdf-album-card-item:hover .pdf-album-card-btn {
+                        background: #B6131D;
+                        border-color: #B6131D;
+                        color: #FFFFFF;
+                        box-shadow: 0 4px 12px rgba(182, 19, 29, 0.2);
+                      }
+
+                      @media only screen and (max-width: 767px) {
+                        .pdf-options-container.card-view {
+                          grid-template-columns: 1fr;
+                          gap: 20px;
+                        }
+                        .pdf-modal-card {
+                          padding: 25px 20px;
+                        }
+                        .pdf-album-card-img-wrap {
+                          height: 160px;
+                        }
                       }
                     </style>
 
@@ -19741,39 +19792,43 @@ setTimeout(function(){if(typeof window.enableButtonizer==="function"){window.ena
     <button class="pdf-modal-close" onclick="closePdfModal()">&times;</button>
     <h3 class="pdf-modal-title">Select Wedding Album</h3>
     <p class="pdf-modal-subtitle">Choose one of our premium wedding albums to view the design portfolio.</p>
-    <div class="pdf-options-container">
-      <a href="/pdf/first.pdf" target="_blank" class="pdf-option-card">
-        <div class="pdf-option-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#B6131D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
+    <div class="pdf-options-container card-view">
+      <a href="/pdf/first.pdf" target="_blank" class="pdf-album-card-item">
+        <div class="pdf-album-card-img-wrap">
+          <img src="/images/album_thumb_1.png" alt="Wedding Album - Volume 1" class="pdf-album-card-img" />
+          <span class="pdf-album-card-badge">Volume 1</span>
         </div>
-        <div class="pdf-option-info">
+        <div class="pdf-album-card-content">
           <h4>Wedding Album - Volume 1</h4>
-          <span class="pdf-option-tag">Click to open First PDF</span>
+          <p>Premium modern design showcasing high-end cinematic captures and royal layouts.</p>
+          <div class="pdf-album-card-btn">
+            <span>Open PDF</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </div>
         </div>
-        <span class="pdf-option-action">Open →</span>
       </a>
       
-      <a href="/pdf/second.pdf" target="_blank" class="pdf-option-card">
-        <div class="pdf-option-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#B6131D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg>
+      <a href="/pdf/second.pdf" target="_blank" class="pdf-album-card-item">
+        <div class="pdf-album-card-img-wrap">
+          <img src="/images/album_thumb_2.png" alt="Wedding Album - Volume 2" class="pdf-album-card-img" />
+          <span class="pdf-album-card-badge">Volume 2</span>
         </div>
-        <div class="pdf-option-info">
+        <div class="pdf-album-card-content">
           <h4>Wedding Album - Volume 2</h4>
-          <span class="pdf-option-tag">Click to open Second PDF</span>
+          <p>Exclusive minimal design featuring creative garland exchanges and luxury lighting.</p>
+          <div class="pdf-album-card-btn">
+            <span>Open PDF</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </div>
         </div>
-        <span class="pdf-option-action">Open →</span>
       </a>
     </div>
   </div>
